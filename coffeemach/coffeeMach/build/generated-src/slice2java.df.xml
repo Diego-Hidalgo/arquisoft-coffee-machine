@@ -1,0 +1,27 @@
+<state>
+  <timestamp value='1682205362586' />
+  <sourceSet name='default'>
+    <source name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/CoffeMach.ice'>
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/ServicioComLogistica.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/ServicioAbastecimiento.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/Moneda.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/AlarmaService.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/VentaService.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/RecetaService.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/StringSeqHelper.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/MapStrIntHelper.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/ServicioComLogisticaPrx.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/_ServicioComLogisticaPrxI.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/ServicioAbastecimientoPrx.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/_ServicioAbastecimientoPrxI.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/AlarmaServicePrx.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/_AlarmaServicePrxI.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/VentaServicePrx.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/_VentaServicePrxI.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/RecetaServicePrx.java' />
+      <file name='/Users/pipe/Library/CloudStorage/OneDrive-Personal/Escritorio/Cosas/Cosas de la U/Semestre 6/arqui soft/maquina de cafe/Code/coffeemach/coffeeMach/build/generated-src/servicios/_RecetaServicePrxI.java' />
+    </source>
+    <arg value='/opt/homebrew/Cellar/ice/3.7.8/bin/slice2java' />
+    <arg value='-I/opt/homebrew/Cellar/ice/3.7.8/share/ice/slice' />
+  </sourceSet>
+</state>
