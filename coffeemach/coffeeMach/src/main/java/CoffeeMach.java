@@ -20,7 +20,11 @@ public class CoffeeMach {
       BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(
               communicator.propertyToProxy("broker")).ice_twoway();
 
+      ReliableMessagingServicePrx rmServicePrx = ReliableMessagingServicePrx.checkedCast(
+              communicator.propertyToProxy("rm")).ice_twoway();
+
       System.out.println(brokerServicePrx.getAlarma().ice_getAdapterId());
+      //System.out.println(rmServicePrx)
 
 
       ObjectAdapter adapter = communicator.createObjectAdapter("CoffeMach");

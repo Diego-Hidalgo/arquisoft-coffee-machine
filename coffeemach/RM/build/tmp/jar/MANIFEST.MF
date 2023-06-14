@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Main-Class: RM
+Class-Path: file:/D:/Usuarios/semillero/.gradle/caches/modules-2/files-2
+ .1/com.zeroc/ice/3.7.6/6c7f86b7f9e5f0804a7307077e6c058d8a93fa70/ice-3.7
+ .6.jar file:/D:/Usuarios/semillero/.gradle/caches/modules-2/files-2.1/o
+ rg.postgresql/postgresql/42.3.1/9ca7df660e875b91c78e3d1608d4d7469ad3470
+ c/postgresql-42.3.1.jar file:/D:/Usuarios/semillero/.gradle/caches/modu
+ les-2/files-2.1/org.checkerframework/checker-qual/3.5.0/2f50520c8abea66
+ fbd8d26e481d3aef5c673b510/checker-qual-3.5.0.jar
+

@@ -6,6 +6,6 @@ public class CmLogistics {
         List<String> extArgs = new ArrayList<>();
         try (Communicator communicator = Util.initialize(args, "CmLogistic.cfg", extArgs)) {
 
-        }
+        }   
     }
 }

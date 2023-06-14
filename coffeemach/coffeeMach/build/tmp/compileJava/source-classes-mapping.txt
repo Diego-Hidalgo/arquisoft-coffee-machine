@@ -1,5 +1,5 @@
-alarma/AlarmaService.java
- alarma.AlarmaService
+CoffeeMach.java
+ CoffeeMach
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
 servicios/BrokerServicePrx.java
@@ -31,6 +31,8 @@ servicios/VentaService.java
  servicios.VentaService$1
 McControlador/VentaService.java
  McControlador.VentaService
+servicios/ReliableMessagingServicePrx.java
+ servicios.ReliableMessagingServicePrx
 ingrediente/IngredienteRepositorio.java
  ingrediente.IngredienteRepositorio
 monedero/MonedasRepositorio.java
@@ -64,6 +66,9 @@ McControlador/ControladorMQ.java
  McControlador.ControladorMQ$7
  McControlador.ControladorMQ$8
  McControlador.ControladorMQ$9
+servicios/ReliableMessagingService.java
+ servicios.ReliableMessagingService
+ servicios.ReliableMessagingService$1
 McControlador/Venta.java
  McControlador.Venta
 servicios/_BrokerServicePrxI.java
@@ -81,6 +86,8 @@ interfaces/Repositorio.java
  interfaces.Repositorio
 servicios/VentaServicePrx.java
  servicios.VentaServicePrx
+servicios/_ReliableMessagingServicePrxI.java
+ servicios._ReliableMessagingServicePrxI
 interfazUsuario/Interfaz.java
  interfazUsuario.Interfaz
 servicios/BrokerService.java
@@ -95,5 +102,5 @@ ingrediente/IngredienteService.java
  ingrediente.IngredienteService
 servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
-CoffeeMach.java
- CoffeeMach
+alarma/AlarmaService.java
+ alarma.AlarmaService
