@@ -9,7 +9,6 @@ module servicios{
 
     dictionary<string,int> MapStrInt;
 
-
     interface ServicioComLogistica{
 
       StringSeq asignacionMaquina(int codigoOperador);
@@ -50,6 +49,18 @@ module servicios{
 	    void definirRecetaIngrediente(int idReceta, int idIngrediente,int valor);
 	    string registrarReceta(string nombre, int precio);
 	    string registrarIngrediente(string nombre);
+    }
+
+    interface BrokerService{
+
+        void subscribeAlarma(AlarmaService* service);
+        void subscribeVenta(VentaService* service);
+        void subscribeReceta(RecetaService* service);
+        void subscribeAbastecimiento(ServicioAbastecimiento* service);
+        void subscribeLogistica(ServicioComLogistica* service);
+
+        AlarmaService* getAlarma();
+
     }
 
 }

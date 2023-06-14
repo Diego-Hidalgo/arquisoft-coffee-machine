@@ -36,6 +36,9 @@ public class ServidorCentral {
             adapter.add(log, Util.stringToIdentity("logistica"));
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
 
+            BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(communicator.propertyToProxy("broker")).ice_twoway();
+            brokerServicePrx.subscribeAlarma(AlarmaServicePrx.checkedCast(communicator.stringToProxy(" Alarmas:tcp -h localhost -p 12345 ")));
+
             ControladorRecetas controladorRecetas = new ControladorRecetas();
             controladorRecetas.setRecetaService(recetas);
             controladorRecetas.run();

@@ -1,5 +1,7 @@
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
+modelo/VentasReceta.java
+ modelo.VentasReceta
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 alarma/Alarma.java
@@ -38,8 +40,8 @@ modelo/Maquina.java
  modelo.Maquina
 servicios/Moneda.java
  servicios.Moneda
-ServidorCentral.java
- ServidorCentral
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
@@ -54,6 +56,8 @@ interfaz/InterfazRecetas.java
  interfaz.InterfazRecetas
 modelo/Ingrediente.java
  modelo.Ingrediente
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 modelo/Receta.java
  modelo.Receta
 modelo/VentasMaquina.java
@@ -71,17 +75,20 @@ servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 modelo/ConexionBD.java
  modelo.ConexionBD
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
 interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas
  interfaz.ControladorRecetas$1
  interfaz.ControladorRecetas$2
  interfaz.ControladorRecetas$3
-modelo/VentasReceta.java
- modelo.VentasReceta
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
+servicios/BrokerService.java
+ servicios.BrokerService
+ servicios.BrokerService$1
+servicios/_BrokerServicePrxI.java
+ servicios._BrokerServicePrxI
+ServidorCentral.java
+ ServidorCentral

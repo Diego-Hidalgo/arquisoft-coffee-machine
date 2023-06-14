@@ -1,7 +1,9 @@
+alarma/AlarmaService.java
+ alarma.AlarmaService
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
-CoffeeMach.java
- CoffeeMach
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 alarma/Alarma.java
@@ -42,10 +44,10 @@ suministro/SuministroServiceImp.java
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
-ingrediente/Ingrediente.java
- ingrediente.Ingrediente
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
+ingrediente/Ingrediente.java
+ ingrediente.Ingrediente
 productoReceta/RecetaRepositorio.java
  productoReceta.RecetaRepositorio
 servicios/RecetaService.java
@@ -64,6 +66,8 @@ McControlador/ControladorMQ.java
  McControlador.ControladorMQ$9
 McControlador/Venta.java
  McControlador.Venta
+servicios/_BrokerServicePrxI.java
+ servicios._BrokerServicePrxI
 monedero/DepositoMonedas.java
  monedero.DepositoMonedas
 alarma/AlarmaServiceImp.java
@@ -79,6 +83,9 @@ servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 interfazUsuario/Interfaz.java
  interfazUsuario.Interfaz
+servicios/BrokerService.java
+ servicios.BrokerService
+ servicios.BrokerService$1
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
@@ -88,5 +95,5 @@ ingrediente/IngredienteService.java
  ingrediente.IngredienteService
 servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
-alarma/AlarmaService.java
- alarma.AlarmaService
+CoffeeMach.java
+ CoffeeMach
