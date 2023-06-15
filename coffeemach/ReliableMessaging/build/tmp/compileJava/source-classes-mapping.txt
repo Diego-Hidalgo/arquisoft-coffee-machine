@@ -6,9 +6,8 @@ servicios/_LogisticServicePrxI.java
  servicios._LogisticServicePrxI
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
-servicios/BrokerService.java
- servicios.BrokerService
- servicios.BrokerService$1
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
 servicios/_AlarmaServicePrxI.java
  servicios._AlarmaServicePrxI
 servicios/LogisticServicePrx.java
@@ -43,8 +42,9 @@ servicios/AlarmaServicePrx.java
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+servicios/BrokerService.java
+ servicios.BrokerService
+ servicios.BrokerService$1
 servicios/_BrokerServicePrxI.java
  servicios._BrokerServicePrxI
 servicios/AlarmaService.java
@@ -60,14 +60,14 @@ servicios/BodegaService.java
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
-ReliableMessaging.java
- ReliableMessaging
+servicios/ReliableMessagingServicePrx.java
+ servicios.ReliableMessagingServicePrx
 servicios/ReliableMessagingService.java
  servicios.ReliableMessagingService
  servicios.ReliableMessagingService$1
 servicios/_ReliableMessagingServicePrxI.java
  servicios._ReliableMessagingServicePrxI
-servicios/ReliableMessagingServicePrx.java
- servicios.ReliableMessagingServicePrx
+ReliableMessaging.java
+ ReliableMessaging
 ReliableMessagingServiceImp.java
  ReliableMessagingServiceImp

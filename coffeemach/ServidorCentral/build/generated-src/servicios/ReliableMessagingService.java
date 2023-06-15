@@ -19,6 +19,10 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
 {
     void receiveAlertMessage(String message, com.zeroc.Ice.Current current);
 
+    void receiveEscasezIngrediente(String ing, int cod, com.zeroc.Ice.Current current);
+
+    void sendMessage(String message, com.zeroc.Ice.Current current);
+
     /** @hidden */
     static final String[] _iceIds =
     {
@@ -61,6 +65,44 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
         return inS.setResult(inS.writeEmptyParams());
     }
 
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_receiveEscasezIngrediente(ReliableMessagingService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        String iceP_ing;
+        int iceP_cod;
+        iceP_ing = istr.readString();
+        iceP_cod = istr.readInt();
+        inS.endReadParams();
+        obj.receiveEscasezIngrediente(iceP_ing, iceP_cod, current);
+        return inS.setResult(inS.writeEmptyParams());
+    }
+
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_sendMessage(ReliableMessagingService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        String iceP_message;
+        iceP_message = istr.readString();
+        inS.endReadParams();
+        obj.sendMessage(iceP_message, current);
+        return inS.setResult(inS.writeEmptyParams());
+    }
+
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -68,7 +110,9 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "receiveAlertMessage"
+        "receiveAlertMessage",
+        "receiveEscasezIngrediente",
+        "sendMessage"
     };
 
     /** @hidden */
@@ -103,6 +147,14 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
             case 4:
             {
                 return _iceD_receiveAlertMessage(this, in, current);
+            }
+            case 5:
+            {
+                return _iceD_receiveEscasezIngrediente(this, in, current);
+            }
+            case 6:
+            {
+                return _iceD_sendMessage(this, in, current);
             }
         }
 

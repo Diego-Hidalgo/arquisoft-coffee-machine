@@ -10,7 +10,6 @@ import servicios.AlarmaServicePrx;
 import servicios.BrokerServicePrx;
 import servicios.ReliableMessagingService;
 import servicios.ReliableMessagingServicePrx;
-import com.zeroc.Ice.ObjectPrx;
 
 public class ReliableMessagingServiceImp extends Thread implements ReliableMessagingService {
 
@@ -19,12 +18,16 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
     // private ReliableMessagingServicePrx rmOrigin;
     // private ReliableMessagingServicePrx rm;
     private Queue<String> alarmas;
-    private Queue<String> escasezIng;
     private BrokerServicePrx broker;
+    private String address;
+    private int port;   
 
-    public ReliableMessagingServiceImp() {
+    public ReliableMessagingServiceImp(String address, int port) {
         alarmas = new LinkedList<>();
-        escasezIng = new LinkedList<>();
+        System.out.println(address + " - " + port);
+        this.address = address;
+        this.port = port;
+
     }
 
     public synchronized void setCommunicator(Communicator com) {
@@ -35,43 +38,21 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
         this.broker = broker;
     }
 
-    @Override
-    public void receiveAlertMessage(String message, Current current) {
-        System.out.println("Test error!4");
+     @Override
+    public void sendMessage(String message, Current current) {
         alarmas.add(message);
         System.out.println("I just added something!");
         System.out.println(message);
-        /*
-         * System.out.println(current.con);
-         * Connection connection = current.con;
-         * ConnectionInfo cf = connection.getInfo();
-         * IPConnectionInfo ipCf = (IPConnectionInfo) cf;
-         * String localAddress = ipCf.localAddress;
-         * int localPort = ipCf.localPort;
-         * System.out.println(ipCf.localAddress);
-         * System.out.println(ipCf.localPort);
-         * 
-         * String proxyString = "CoffeMach:tcp -h " + localAddress + " -p " + localPort;
-         * rmOrigin =
-         * ReliableMessagingServicePrx.checkedCast(communicator.stringToProxy(
-         * proxyString));
-         * 
-         * 
-         * rmOrigin.sendMessage("ack - " + message + " - Recibido");
-         */
 
     }
 
     @Override
-    public void receiveEscasezIngrediente(String ing, int cod, Current current) {
-        // los parametros recibidos se tienen que guardar en algún lado
-        escasezIng.add(ing +"-"+cod);
-    }
+    public void receiveAlertMessage(String message, Current current) {
+        alarmas.add(message);
+        System.out.println("I just added something!");
+        System.out.println(message);
+       
 
-    private void sendEscasezIngredientes(String msg) {
-        String ing = msg.split("-")[0];
-        int cod = Integer.parseInt(msg.split("-")[1]);
-        broker.getAlarma().recibirNotificacionEscasezIngredientes(ing, cod);
     }
 
     private void sendAlertMessage(String message) {
@@ -80,7 +61,27 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
         // recibe parametros diferentes
         // a parte del broker.getAlarma() se obtiene el metodo para informar
         System.out.println("Se recibe para enviar");
-        broker.getAlarma();
+        System.out.println(broker.getAlarma());
+
+    }
+
+    @Override
+    public void receiveEscasezIngrediente (String ing, int cod, Current current) {
+
+    }
+
+     private ReliableMessagingServicePrx createReliableMessagingProxy(String address, int port) {
+        System.out.println("Test error!5");
+        ReliableMessagingServicePrx rmProxy = null;
+
+        String proxyString = "CM:tcp -h " + address + " -p " + port;
+        ObjectPrx base = communicator.stringToProxy(proxyString);
+        rmProxy = ReliableMessagingServicePrx.checkedCast(base);
+        if (rmProxy == null) {
+            throw new IllegalStateException("Error al crear el proxy de ReliableMessagingService");
+        }
+
+        return rmProxy;
     }
 
     @Override
@@ -98,16 +99,15 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
 
         while (true) {
             String alarm = "";
-            String alarmIng = "";
             try {
-                while (!alarmas.isEmpty() && !escasezIng.isEmpty()) {
+                while (!alarmas.isEmpty()) {
                     alarm = alarmas.peek();
-                    alarmIng = escasezIng.peek();
                     try {
                         System.out.println(alarm);
-                        sendAlertMessage(alarm);
-                        sendEscasezIngredientes(alarmIng);
+                        ReliableMessagingServicePrx rm = createReliableMessagingProxy(address, port);
+                        rm.sendMessage(alarm);
                         alarmas.poll();
+                        //sendAlertMessage(alarm);
                     } catch (ConnectionRefusedException e1) {
                         System.out.println("Error al enviar la alarma: " + e1.getMessage());
                         alarmas.offer(alarm);

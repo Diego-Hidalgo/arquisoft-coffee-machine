@@ -72,6 +72,7 @@ module servicios{
     interface ReliableMessagingService {
       void receiveAlertMessage(string message);
       void receiveEscasezIngrediente(string ing, int cod);
+      void sendMessage(string message);
     };
 
     interface BodegaService {

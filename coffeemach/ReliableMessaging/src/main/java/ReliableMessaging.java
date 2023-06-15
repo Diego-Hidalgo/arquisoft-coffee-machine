@@ -7,7 +7,6 @@ import java.util.concurrent.*;
 
 import servicios.*;
 
-
 public class ReliableMessaging {
   public static void main(String[] args) {
     List<String> extPar = new ArrayList<>();
@@ -16,38 +15,18 @@ public class ReliableMessaging {
 
       System.out.println("Running!");
 
-      /*
-       * try {
-       * //ReliableMessagingServicePrx gatewayAcknowledgment =
-       * ReliableMessagingServicePrx.checkedCast(communicator.propertyToProxy(
-       * "acknowledgement")).ice_twoway();
-       * //ReliableMessagingServicePrx gatewayClient =
-       * ReliableMessagingServicePrx.checkedCast(communicator.propertyToProxy(
-       * "reliableServer")).ice_twoway();
-       * } catch (ConnectionRefusedException e ) {
-       * System.out.println(e.getMessage());
-       * System.out.println("Failed gateway :c");
-       * }
-       * 
-       * ReliableMessagingServicePrx gatewayAcknowledgment = null;
-       * ReliableMessagingServicePrx gatewayClient = null;
-       * 
-       * System.out.println("Gateway error!");
-       */
-
-      System.out.println("Test error location!");
+      String address = args[0];
+      int port = Integer.parseInt(args[1]);
 
       BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(
-              communicator.propertyToProxy("broker")).ice_twoway();
+          communicator.propertyToProxy("broker")).ice_twoway();
 
       ObjectAdapter adapter = communicator.createObjectAdapter("ReliableMessaging");
-      ReliableMessagingServiceImp reliableMessagingServiceImp = new ReliableMessagingServiceImp();
+      ReliableMessagingServiceImp reliableMessagingServiceImp = new ReliableMessagingServiceImp(address, port);
       reliableMessagingServiceImp.setCommunicator(communicator);
       reliableMessagingServiceImp.setBroker(brokerServicePrx);
-      System.out.println("Test error location!2");
       adapter.add(reliableMessagingServiceImp, Util.stringToIdentity("RM"));
       adapter.activate();
-      System.out.println("Test error location!3");
       reliableMessagingServiceImp.run();
 
       communicator.waitForShutdown();

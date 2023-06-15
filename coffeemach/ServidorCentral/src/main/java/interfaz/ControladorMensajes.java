@@ -5,6 +5,17 @@ import servicios.*;
 import com.zeroc.Ice.Current;
 
 public class ControladorMensajes extends Thread implements ReliableMessagingService {
+
+    @Override
+    public void receiveEscasezIngrediente (String ing, int cod, Current current) {
+
+    }
+
+    @Override
+    public void sendMessage (String message, Current current) {
+        System.out.println("Mensaje obtenido!");
+        System.out.println(message);
+    }
 	
 	@Override
 	public void run() {
