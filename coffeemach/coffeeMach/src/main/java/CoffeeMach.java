@@ -9,39 +9,21 @@ public class CoffeeMach {
   public static void main(String[] args) {
     List<String> extPar = new ArrayList<>();
     try (Communicator communicator = Util.initialize(args, "coffeMach.cfg", extPar)) {
-<<<<<<< HEAD
-      
-      AlarmaServicePrx alarmaS = AlarmaServicePrx.checkedCast(
-          communicator.propertyToProxy("alarmas")).ice_twoway();
-      VentaServicePrx ventas = VentaServicePrx.checkedCast(
-          communicator.propertyToProxy("ventas")).ice_twoway();
-      RecetaServicePrx recetaServicePrx = RecetaServicePrx.checkedCast(
-          communicator.propertyToProxy("recetas")).ice_twoway();
-      
-      BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(
-              communicator.propertyToProxy("broker")).ice_twoway();
 
+      /*
+       * AlarmaServicePrx alarmaS = AlarmaServicePrx.checkedCast(
+       * communicator.propertyToProxy("alarmas")).ice_twoway();
+       * VentaServicePrx ventas = VentaServicePrx.checkedCast(
+       * communicator.propertyToProxy("ventas")).ice_twoway();
+       * RecetaServicePrx recetaServicePrx = RecetaServicePrx.checkedCast(
+       * communicator.propertyToProxy("recetas")).ice_twoway();
+       */
+
+      BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(
+          communicator.propertyToProxy("broker")).ice_twoway();
+          
       ReliableMessagingServicePrx rmServicePrx = ReliableMessagingServicePrx.checkedCast(
-              communicator.propertyToProxy("rm")).ice_twoway();
-
-      System.out.println(brokerServicePrx.getAlarma().ice_getAdapterId());
-      //System.out.println(rmServicePrx)
-
-
-      ObjectAdapter adapter = communicator.createObjectAdapter("CoffeMach");
-      
-      ControladorMQ service = new ControladorMQ();
-      service.setAlarmaService(alarmaS);
-      service.setVentas(ventas);
-      service.setRecetaServicePrx(recetaServicePrx);
-      service.setRM(rmServicePrx);
-      service.run();
-      adapter.add((ServicioAbastecimiento) service, Util.stringToIdentity("abastecer"));
-      
-=======
-
-      BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(
-              communicator.propertyToProxy("broker")).ice_twoway();
+          communicator.propertyToProxy("rm")).ice_twoway();
 
       ObjectAdapter adapter = communicator.createObjectAdapter("CoffeMach");
 
@@ -49,7 +31,6 @@ public class CoffeeMach {
       service.setRM(rmServicePrx);
       service.run();
       adapter.add((ServicioAbastecimiento) service, Util.stringToIdentity("abastecer"));
->>>>>>> f067b954a23ba0aa19206c232f278cfefde38aee
 
       adapter.activate();
       communicator.waitForShutdown();

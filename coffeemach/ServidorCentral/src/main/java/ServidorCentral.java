@@ -39,7 +39,7 @@ public class ServidorCentral {
             adapter.add(log, Util.stringToIdentity("logistica"));
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
 
-            String address = args[0];
+            String address =args[0];
             String port = args[1];
 
             BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(communicator.propertyToProxy("broker")).ice_twoway();

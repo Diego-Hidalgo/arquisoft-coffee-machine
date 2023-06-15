@@ -17,26 +17,32 @@ public class ReliableMessaging {
 
       System.out.println("Running!");
 
-      try {
-        ReliableMessagingServicePrx gatewayAcknowledgment = ReliableMessagingServicePrx.checkedCast(communicator.propertyToProxy("acknowledgement")).ice_twoway();
-        ReliableMessagingServicePrx gatewayClient = ReliableMessagingServicePrx.checkedCast(communicator.propertyToProxy("reliableServer")).ice_twoway();
-      } catch (ConnectionRefusedException e ) {
-        System.out.println(e.getMessage());
-        System.out.println("Failed gateway :c");
-      }
-
-      ReliableMessagingServicePrx gatewayAcknowledgment = null;
-      ReliableMessagingServicePrx gatewayClient = null;
-
-      System.out.println("Gateway error!");
-      /*BodegaServicePrx bodegaServicePrx = BodegaServicePrx.checkedCast(
-          communicator.propertyToProxy("bodega")).ice_twoway();
-
-      LogisticServicePrx logisticServicePrx = LogisticServicePrx.checkedCast(
-          communicator.propertyToProxy("logistica")).ice_twoway();*/
+      /*
+       * try {
+       * //ReliableMessagingServicePrx gatewayAcknowledgment =
+       * ReliableMessagingServicePrx.checkedCast(communicator.propertyToProxy(
+       * "acknowledgement")).ice_twoway();
+       * //ReliableMessagingServicePrx gatewayClient =
+       * ReliableMessagingServicePrx.checkedCast(communicator.propertyToProxy(
+       * "reliableServer")).ice_twoway();
+       * } catch (ConnectionRefusedException e ) {
+       * System.out.println(e.getMessage());
+       * System.out.println("Failed gateway :c");
+       * }
+       * 
+       * ReliableMessagingServicePrx gatewayAcknowledgment = null;
+       * ReliableMessagingServicePrx gatewayClient = null;
+       * 
+       * System.out.println("Gateway error!");
+       */
+      String address = args[0];
+      String port = args[1];
 
       ObjectAdapter adapter = communicator.createObjectAdapter("ReliableMessaging");
-      ReliableMessagingServiceImp reliableMessagingServiceImp = new ReliableMessagingServiceImp(gatewayAcknowledgment, gatewayClient);
+      ReliableMessagingServiceImp reliableMessagingServiceImp = new ReliableMessagingServiceImp(address, port/*
+                                                                                                              * gatewayAcknowledgment,
+                                                                                                              * gatewayClient
+                                                                                                              */);
       reliableMessagingServiceImp.setCommunicator(communicator);
 
       adapter.add(reliableMessagingServiceImp, Util.stringToIdentity("RM"));

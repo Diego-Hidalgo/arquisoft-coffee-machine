@@ -69,8 +69,6 @@ module servicios{
         ServicioAbastecimiento* getAbastecimiento();
         ServicioComLogistica* getLogistica();
     }
-<<<<<<< HEAD
-
     interface ReliableMessagingService {
       void sendMessage(string message);
 
@@ -85,6 +83,4 @@ module servicios{
       void receiveMessage(string message);
     };
 
-=======
->>>>>>> f067b954a23ba0aa19206c232f278cfefde38aee
 }

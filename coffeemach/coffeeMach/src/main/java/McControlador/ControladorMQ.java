@@ -85,6 +85,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 
 		arrancarMaquina();
 		eventos();
+		abastecer(codMaquina, ALARMA_ABASTECIMIENTO, null);
 	}
 
 	@Override
@@ -334,7 +335,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 						frame.getTextAreaAlarmas().getText()
 								+ "Se genero una alarma de: Mantenimiento"
 								+ "\n");
-
+				rm.sendMessage(ALARMA_MAL_FUNCIONAMIENTO + "-" + codMaquina + "-Se requiere mantenimiento");
 				alarmaServicePrx.recibirNotificacionMalFuncionamiento(codMaquina, "Se requiere mantenimiento");
 
 				alarmas.addElement("1", temp);

@@ -1,9 +1,5 @@
-alarma/AlarmaService.java
- alarma.AlarmaService
-servicios/RecetaServicePrx.java
- servicios.RecetaServicePrx
-servicios/BrokerServicePrx.java
- servicios.BrokerServicePrx
+CoffeeMach.java
+ CoffeeMach
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 alarma/Alarma.java
@@ -12,18 +8,8 @@ interfazUsuario/Prueba.java
  interfazUsuario.Prueba
 servicios/_AlarmaServicePrxI.java
  servicios._AlarmaServicePrxI
-McControlador/VentaRepositorio.java
- McControlador.VentaRepositorio
-servicios/_ServicioComLogisticaPrxI.java
- servicios._ServicioComLogisticaPrxI
-alarma/AlarmaRepositorio.java
- alarma.AlarmaRepositorio
 servicios/_VentaServicePrxI.java
  servicios._VentaServicePrxI
-servicios/ServicioAbastecimientoPrx.java
- servicios.ServicioAbastecimientoPrx
-productoReceta/Receta.java
- productoReceta.Receta
 suministro/SuministroService.java
  suministro.SuministroService
 servicios/VentaService.java
@@ -31,43 +17,29 @@ servicios/VentaService.java
  servicios.VentaService$1
 McControlador/VentaService.java
  McControlador.VentaService
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
-ingrediente/IngredienteRepositorio.java
- ingrediente.IngredienteRepositorio
+servicios/ReliableMessagingServicePrx.java
+ servicios.ReliableMessagingServicePrx
+servicios/_BodegaServicePrxI.java
+ servicios._BodegaServicePrxI
 monedero/MonedasRepositorio.java
  monedero.MonedasRepositorio
 servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
-servicios/Moneda.java
- servicios.Moneda
 suministro/SuministroServiceImp.java
  suministro.SuministroServiceImp
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
-servicios/AlarmaServicePrx.java
- servicios.AlarmaServicePrx
-ingrediente/Ingrediente.java
- ingrediente.Ingrediente
 productoReceta/RecetaRepositorio.java
  productoReceta.RecetaRepositorio
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
-ingrediente/IngredienteService.java
- ingrediente.IngredienteService
-McControlador/Venta.java
- McControlador.Venta
+servicios/ReliableMessagingService.java
+ servicios.ReliableMessagingService
+ servicios.ReliableMessagingService$1
 servicios/_BrokerServicePrxI.java
  servicios._BrokerServicePrxI
-monedero/DepositoMonedas.java
- monedero.DepositoMonedas
-alarma/AlarmaServiceImp.java
- alarma.AlarmaServiceImp
 servicios/AlarmaService.java
  servicios.AlarmaService
  servicios.AlarmaService$1
@@ -75,21 +47,48 @@ servicios/StringSeqHelper.java
  servicios.StringSeqHelper
 interfaces/Repositorio.java
  interfaces.Repositorio
-servicios/VentaServicePrx.java
- servicios.VentaServicePrx
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-interfazUsuario/Interfaz.java
- interfazUsuario.Interfaz
+servicios/_ReliableMessagingServicePrxI.java
+ servicios._ReliableMessagingServicePrxI
 servicios/BrokerService.java
  servicios.BrokerService
  servicios.BrokerService$1
-CoffeeMach.java
- CoffeeMach
-servicios/BodegaServicePrx.java
- servicios.BodegaServicePrx
+ingrediente/IngredienteService.java
+ ingrediente.IngredienteService
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
+alarma/AlarmaService.java
+ alarma.AlarmaService
+servicios/RecetaServicePrx.java
+ servicios.RecetaServicePrx
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
 servicios/_LogisticServicePrxI.java
  servicios._LogisticServicePrxI
+McControlador/VentaRepositorio.java
+ McControlador.VentaRepositorio
+servicios/LogisticServicePrx.java
+ servicios.LogisticServicePrx
+servicios/_ServicioComLogisticaPrxI.java
+ servicios._ServicioComLogisticaPrxI
+alarma/AlarmaRepositorio.java
+ alarma.AlarmaRepositorio
+servicios/ServicioAbastecimientoPrx.java
+ servicios.ServicioAbastecimientoPrx
+servicios/BodegaServicePrx.java
+ servicios.BodegaServicePrx
+productoReceta/Receta.java
+ productoReceta.Receta
+ingrediente/IngredienteRepositorio.java
+ ingrediente.IngredienteRepositorio
+servicios/Moneda.java
+ servicios.Moneda
+servicios/LogisticService.java
+ servicios.LogisticService
+ servicios.LogisticService$1
+servicios/AlarmaServicePrx.java
+ servicios.AlarmaServicePrx
+ingrediente/Ingrediente.java
+ ingrediente.Ingrediente
 McControlador/ControladorMQ.java
  McControlador.ControladorMQ
  McControlador.ControladorMQ$1
@@ -101,20 +100,21 @@ McControlador/ControladorMQ.java
  McControlador.ControladorMQ$7
  McControlador.ControladorMQ$8
  McControlador.ControladorMQ$9
+McControlador/Venta.java
+ McControlador.Venta
+monedero/DepositoMonedas.java
+ monedero.DepositoMonedas
+alarma/AlarmaServiceImp.java
+ alarma.AlarmaServiceImp
+servicios/VentaServicePrx.java
+ servicios.VentaServicePrx
 servicios/BodegaService.java
  servicios.BodegaService
  servicios.BodegaService$1
-servicios/ReliableMessagingService.java
- servicios.ReliableMessagingService
- servicios.ReliableMessagingService$1
-servicios/_ReliableMessagingServicePrxI.java
- servicios._ReliableMessagingServicePrxI
-servicios/ReliableMessagingServicePrx.java
- servicios.ReliableMessagingServicePrx
-servicios/LogisticServicePrx.java
- servicios.LogisticServicePrx
-servicios/_BodegaServicePrxI.java
- servicios._BodegaServicePrxI
-servicios/LogisticService.java
- servicios.LogisticService
- servicios.LogisticService$1
+interfazUsuario/Interfaz.java
+ interfazUsuario.Interfaz
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper

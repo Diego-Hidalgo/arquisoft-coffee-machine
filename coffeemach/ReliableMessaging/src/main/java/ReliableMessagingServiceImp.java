@@ -12,14 +12,16 @@ import servicios.ReliableMessagingServicePrx;
 public class ReliableMessagingServiceImp extends Thread implements ReliableMessagingService {
 
     private Communicator communicator;
-    private ReliableMessagingServicePrx rmDestiny;
-    private ReliableMessagingServicePrx rmOrigin;
+    //private ReliableMessagingServicePrx rmDestiny;
+    //private ReliableMessagingServicePrx rmOrigin;
+    //private ReliableMessagingServicePrx rm;
     private Queue<String> alarmas;
     
-    public ReliableMessagingServiceImp(ReliableMessagingServicePrx acknowledgmentRM, ReliableMessagingServicePrx serverRM) {
+    public ReliableMessagingServiceImp(String address, String port/*ReliableMessagingServicePrx acknowledgmentRM, ReliableMessagingServicePrx serverRM*/) {
         alarmas = new LinkedList<>();
-        rmOrigin = acknowledgmentRM;
-        rmDestiny = serverRM;
+        System.out.println(address + " - " + port);
+        //rmOrigin = acknowledgmentRM;
+        //rmDestiny = serverRM;
 
     }
 
@@ -30,7 +32,9 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
     @Override
     public void sendMessage(String message, Current current) {
         alarmas.add(message);
-        rmOrigin.sendMessage("ack - " + message + " - Recibido");
+        System.out.println("I just added something!");
+        System.out.println(message);
+        //rmOrigin.sendMessage("ack - " + message + " - Recibido");
     }
 
     @Override
@@ -41,12 +45,20 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
     @Override
     public void run() {
         while (true) {
+            System.out.println("Sape");
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                continue;
+            }
+        }
+        /*while (true) {
             String alarm = "";
             try {
                 while (!alarmas.isEmpty()) {
                     alarm = alarmas.peek();
                     try {
-                        rmDestiny.sendMessage(alarm);
+                        rm.sendMessage(alarm);
                         alarmas.poll();
                     } catch (RuntimeException e1) {
                         System.out.println("Error al enviar la alarma: " + e1.getMessage());
@@ -67,6 +79,6 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
                 System.out.println("Error al procesar la cola de alarmas: " + e2.getMessage());
                 // Handle the exception, log it, or perform any other necessary actions
             }
-        }
+        }*/
     }
 }
