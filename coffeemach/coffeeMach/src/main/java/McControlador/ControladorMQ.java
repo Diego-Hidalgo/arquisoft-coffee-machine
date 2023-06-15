@@ -23,6 +23,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 
 	private AlarmaServicePrx alarmaServicePrx;
 	private VentaServicePrx ventasService;
+	private ReliableMessagingServicePrx rm;
 
 	// @Reference
 	private AlarmaRepositorio alarmas = AlarmaRepositorio.getInstance();
@@ -34,6 +35,14 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 	private RecetaRepositorio recetas = RecetaRepositorio.getInstance();
 	// @Referenc
 	private VentaRepositorio ventas = VentaRepositorio.getInstance();
+
+	public static final int ALARMA_INGREDIENTE = 1;
+    public static final int ALARMA_MONEDA_CIEN = 2;
+    public static final int ALARMA_MONEDA_DOS = 3;
+    public static final int ALARMA_MONEDA_QUI = 4;
+    public static final int ALARMA_SUMINISTRO = 5;
+    public static final int ALARMA_MAL_FUNCIONAMIENTO = 6;
+	public static final int ALARMA_ABASTECIMIENTO = 7;
 
 	/**
 	 * @param ventas the ventas to set
@@ -53,6 +62,10 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 	 */
 	public void setRecetaServicePrx(RecetaServicePrx recetaServicePrx) {
 		this.recetaServicePrx = recetaServicePrx;
+	}
+
+	public void setRM(ReliableMessagingServicePrx rm) {
+		this.rm = rm;
 	}
 
 	private Interfaz frame;
@@ -148,7 +161,9 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 			// ResetAlarmas
 
 			// Envio a Servidor
-			alarmaServicePrx.recibirNotificacionAbastesimiento(codMaquina, idAlarma + "", cantidad);
+			rm.sendMessage(ALARMA_ABASTECIMIENTO + "-" + codMaquina + "-" + idAlarma + "-" + cantidad);
+			// Testing reliable messaging instead of alarmaServicePrx
+			//alarmaServicePrx.recibirNotificacionAbastesimiento(codMaquina, idAlarma + "", cantidad);
 		}
 	}
 

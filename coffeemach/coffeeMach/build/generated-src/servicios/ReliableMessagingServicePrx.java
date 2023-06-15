@@ -17,22 +17,22 @@ package servicios;
 
 public interface ReliableMessagingServicePrx extends com.zeroc.Ice.ObjectPrx
 {
-    default void suscribeClient(AlarmaServicePrx service)
+    default void suscribeClient(String service)
     {
         suscribeClient(service, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void suscribeClient(AlarmaServicePrx service, java.util.Map<String, String> context)
+    default void suscribeClient(String service, java.util.Map<String, String> context)
     {
         _iceI_suscribeClientAsync(service, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> suscribeClientAsync(AlarmaServicePrx service)
+    default java.util.concurrent.CompletableFuture<Void> suscribeClientAsync(String service)
     {
         return _iceI_suscribeClientAsync(service, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> suscribeClientAsync(AlarmaServicePrx service, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> suscribeClientAsync(String service, java.util.Map<String, String> context)
     {
         return _iceI_suscribeClientAsync(service, context, false);
     }
@@ -44,31 +44,31 @@ public interface ReliableMessagingServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_suscribeClientAsync(AlarmaServicePrx iceP_service, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_suscribeClientAsync(String iceP_service, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "suscribeClient", null, sync, null);
         f.invoke(false, context, null, ostr -> {
-                     ostr.writeProxy(iceP_service);
+                     ostr.writeString(iceP_service);
                  }, null);
         return f;
     }
 
-    default void suscribeReceiver(AlarmaServicePrx service)
+    default void suscribeReceiver(String service)
     {
         suscribeReceiver(service, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void suscribeReceiver(AlarmaServicePrx service, java.util.Map<String, String> context)
+    default void suscribeReceiver(String service, java.util.Map<String, String> context)
     {
         _iceI_suscribeReceiverAsync(service, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> suscribeReceiverAsync(AlarmaServicePrx service)
+    default java.util.concurrent.CompletableFuture<Void> suscribeReceiverAsync(String service)
     {
         return _iceI_suscribeReceiverAsync(service, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> suscribeReceiverAsync(AlarmaServicePrx service, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> suscribeReceiverAsync(String service, java.util.Map<String, String> context)
     {
         return _iceI_suscribeReceiverAsync(service, context, false);
     }
@@ -80,11 +80,11 @@ public interface ReliableMessagingServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_suscribeReceiverAsync(AlarmaServicePrx iceP_service, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_suscribeReceiverAsync(String iceP_service, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "suscribeReceiver", null, sync, null);
         f.invoke(false, context, null, ostr -> {
-                     ostr.writeProxy(iceP_service);
+                     ostr.writeString(iceP_service);
                  }, null);
         return f;
     }
@@ -197,22 +197,22 @@ public interface ReliableMessagingServicePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default AlarmaServicePrx getAlarma()
+    default String getAlarma()
     {
         return getAlarma(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default AlarmaServicePrx getAlarma(java.util.Map<String, String> context)
+    default String getAlarma(java.util.Map<String, String> context)
     {
         return _iceI_getAlarmaAsync(context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<AlarmaServicePrx> getAlarmaAsync()
+    default java.util.concurrent.CompletableFuture<java.lang.String> getAlarmaAsync()
     {
         return _iceI_getAlarmaAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<AlarmaServicePrx> getAlarmaAsync(java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<java.lang.String> getAlarmaAsync(java.util.Map<String, String> context)
     {
         return _iceI_getAlarmaAsync(context, false);
     }
@@ -223,12 +223,12 @@ public interface ReliableMessagingServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<AlarmaServicePrx> _iceI_getAlarmaAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getAlarmaAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<AlarmaServicePrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAlarma", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAlarma", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     AlarmaServicePrx ret;
-                     ret = AlarmaServicePrx.uncheckedCast(istr.readProxy());
+                     String ret;
+                     ret = istr.readString();
                      return ret;
                  });
         return f;

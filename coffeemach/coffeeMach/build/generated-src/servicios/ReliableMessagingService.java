@@ -17,9 +17,9 @@ package servicios;
 
 public interface ReliableMessagingService extends com.zeroc.Ice.Object
 {
-    void suscribeClient(AlarmaServicePrx service, com.zeroc.Ice.Current current);
+    void suscribeClient(String service, com.zeroc.Ice.Current current);
 
-    void suscribeReceiver(AlarmaServicePrx service, com.zeroc.Ice.Current current);
+    void suscribeReceiver(String service, com.zeroc.Ice.Current current);
 
     void sendMessage(String message, com.zeroc.Ice.Current current);
 
@@ -27,7 +27,7 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
 
     void persistMessage(String message, com.zeroc.Ice.Current current);
 
-    AlarmaServicePrx getAlarma(com.zeroc.Ice.Current current);
+    String getAlarma(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -64,8 +64,8 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        AlarmaServicePrx iceP_service;
-        iceP_service = AlarmaServicePrx.uncheckedCast(istr.readProxy());
+        String iceP_service;
+        iceP_service = istr.readString();
         inS.endReadParams();
         obj.suscribeClient(iceP_service, current);
         return inS.setResult(inS.writeEmptyParams());
@@ -82,8 +82,8 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        AlarmaServicePrx iceP_service;
-        iceP_service = AlarmaServicePrx.uncheckedCast(istr.readProxy());
+        String iceP_service;
+        iceP_service = istr.readString();
         inS.endReadParams();
         obj.suscribeReceiver(iceP_service, current);
         return inS.setResult(inS.writeEmptyParams());
@@ -154,9 +154,9 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         inS.readEmptyParams();
-        AlarmaServicePrx ret = obj.getAlarma(current);
+        String ret = obj.getAlarma(current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeProxy(ret);
+        ostr.writeString(ret);
         inS.endWriteParams(ostr);
         return inS.setResult(ostr);
     }

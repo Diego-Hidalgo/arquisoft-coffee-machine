@@ -1,5 +1,5 @@
-CoffeeMach.java
- CoffeeMach
+alarma/AlarmaService.java
+ alarma.AlarmaService
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
 servicios/BrokerServicePrx.java
@@ -31,8 +31,9 @@ servicios/VentaService.java
  servicios.VentaService$1
 McControlador/VentaService.java
  McControlador.VentaService
-servicios/ReliableMessagingServicePrx.java
- servicios.ReliableMessagingServicePrx
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
 ingrediente/IngredienteRepositorio.java
  ingrediente.IngredienteRepositorio
 monedero/MonedasRepositorio.java
@@ -55,20 +56,10 @@ productoReceta/RecetaRepositorio.java
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-McControlador/ControladorMQ.java
- McControlador.ControladorMQ
- McControlador.ControladorMQ$1
- McControlador.ControladorMQ$2
- McControlador.ControladorMQ$3
- McControlador.ControladorMQ$4
- McControlador.ControladorMQ$5
- McControlador.ControladorMQ$6
- McControlador.ControladorMQ$7
- McControlador.ControladorMQ$8
- McControlador.ControladorMQ$9
-servicios/ReliableMessagingService.java
- servicios.ReliableMessagingService
- servicios.ReliableMessagingService$1
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
+ingrediente/IngredienteService.java
+ ingrediente.IngredienteService
 McControlador/Venta.java
  McControlador.Venta
 servicios/_BrokerServicePrxI.java
@@ -86,21 +77,44 @@ interfaces/Repositorio.java
  interfaces.Repositorio
 servicios/VentaServicePrx.java
  servicios.VentaServicePrx
-servicios/_ReliableMessagingServicePrxI.java
- servicios._ReliableMessagingServicePrxI
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 interfazUsuario/Interfaz.java
  interfazUsuario.Interfaz
 servicios/BrokerService.java
  servicios.BrokerService
  servicios.BrokerService$1
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-ingrediente/IngredienteService.java
- ingrediente.IngredienteService
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
-alarma/AlarmaService.java
- alarma.AlarmaService
+CoffeeMach.java
+ CoffeeMach
+servicios/BodegaServicePrx.java
+ servicios.BodegaServicePrx
+servicios/_LogisticServicePrxI.java
+ servicios._LogisticServicePrxI
+McControlador/ControladorMQ.java
+ McControlador.ControladorMQ
+ McControlador.ControladorMQ$1
+ McControlador.ControladorMQ$2
+ McControlador.ControladorMQ$3
+ McControlador.ControladorMQ$4
+ McControlador.ControladorMQ$5
+ McControlador.ControladorMQ$6
+ McControlador.ControladorMQ$7
+ McControlador.ControladorMQ$8
+ McControlador.ControladorMQ$9
+servicios/BodegaService.java
+ servicios.BodegaService
+ servicios.BodegaService$1
+servicios/ReliableMessagingService.java
+ servicios.ReliableMessagingService
+ servicios.ReliableMessagingService$1
+servicios/_ReliableMessagingServicePrxI.java
+ servicios._ReliableMessagingServicePrxI
+servicios/ReliableMessagingServicePrx.java
+ servicios.ReliableMessagingServicePrx
+servicios/LogisticServicePrx.java
+ servicios.LogisticServicePrx
+servicios/_BodegaServicePrxI.java
+ servicios._BodegaServicePrxI
+servicios/LogisticService.java
+ servicios.LogisticService
+ servicios.LogisticService$1

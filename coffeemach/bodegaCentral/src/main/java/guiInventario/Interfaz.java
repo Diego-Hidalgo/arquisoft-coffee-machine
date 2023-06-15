@@ -1,5 +1,5 @@
 package guiInventario;
-
+import com.zeroc.Ice.*;
 import java.util.Scanner;
 
 import bodega.Bodega;
@@ -41,7 +41,7 @@ public class Interfaz implements Runnable{
 			switch(valor)
 			{
 			case 1:
-
+				
 				break;
 			default:
 				System.out.println("¡¡¡Opción incorrecta seleccionada!!!");

@@ -10,7 +10,7 @@ public class BodegaCentral {
         List<String> extArgs = new ArrayList<>();
         try (Communicator communicator = Util.initialize(args, "bodegaControl.cfg", extArgs)) {
             ObjectAdapter adapter = communicator.createObjectAdapter("Bodega");
-            Interfaz service = new Interfaz();
+            Interfaz service = new Interfaz(communicator);
 
             service.run();
             // De pronto esta línea de abajo puede fallar.

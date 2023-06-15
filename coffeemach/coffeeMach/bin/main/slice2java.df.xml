@@ -1,5 +1,5 @@
 <state>
-  <timestamp value='1686770199528' />
+  <timestamp value='1686806052784' />
   <sourceSet name='default'>
     <source name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\CoffeMach.ice'>
       <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\ServicioComLogistica.java' />
@@ -10,6 +10,8 @@
       <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\RecetaService.java' />
       <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\BrokerService.java' />
       <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\ReliableMessagingService.java' />
+      <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\BodegaService.java' />
+      <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\LogisticService.java' />
       <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\StringSeqHelper.java' />
       <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\MapStrIntHelper.java' />
       <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\ServicioComLogisticaPrx.java' />
@@ -26,6 +28,10 @@
       <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\_BrokerServicePrxI.java' />
       <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\ReliableMessagingServicePrx.java' />
       <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\_ReliableMessagingServicePrxI.java' />
+      <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\BodegaServicePrx.java' />
+      <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\_BodegaServicePrxI.java' />
+      <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\LogisticServicePrx.java' />
+      <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\_LogisticServicePrxI.java' />
     </source>
     <arg value='C:\Program Files\ZeroC\Ice-3.7.8\\bin\slice2java.exe' />
     <arg value='-IC:\Program Files\ZeroC\Ice-3.7.8\\slice' />

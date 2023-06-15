@@ -64,13 +64,17 @@ module servicios{
     }
 
     interface ReliableMessagingService {
-      void suscribeClient(AlarmaService* service);
-      void suscribeReceiver(AlarmaService* service);
       void sendMessage(string message);
-      void receiveMessage(string message);
-      void persistMessage(string message);
 
-      AlarmaService* getAlarma();
+      string getAlarma();
+    };
+
+    interface BodegaService {
+      void receiveMessages(string message);
+    };
+
+    interface LogisticService {
+      void receiveMessage(string message);
     };
 
 }
