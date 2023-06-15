@@ -8,7 +8,7 @@ public class PetitionTrackerImp {
         this.count = 0;
     }
 
-    public void increaseCount() {
+    public synchronized void increaseCount() {
         count ++;
     }
 
