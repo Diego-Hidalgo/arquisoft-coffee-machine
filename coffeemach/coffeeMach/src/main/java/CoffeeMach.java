@@ -26,7 +26,7 @@ public class CoffeeMach {
           communicator.propertyToProxy("rm")).ice_twoway();
 
       ObjectAdapter adapter = communicator.createObjectAdapter("CoffeMach");
-
+      
       ControladorMQ service = new ControladorMQ();
       service.setRM(rmServicePrx);
       service.run();

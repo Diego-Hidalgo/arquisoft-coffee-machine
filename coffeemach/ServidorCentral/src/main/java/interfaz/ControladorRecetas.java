@@ -25,7 +25,6 @@ public class ControladorRecetas implements Runnable {
 	ArrayList<String> listaIng = new ArrayList<String>();
 
 	ArrayList<String> listaReceta = new ArrayList<String>();
-
 	ArrayList<String> listaAsociada = new ArrayList<String>();
 
 	@Override

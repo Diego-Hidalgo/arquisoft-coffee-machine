@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.zeroc.Ice.*;
 import comunicacion.*;
+import interfaz.ControladorMensajes;
 import interfaz.ControladorRecetas;
 import receta.ProductoReceta;
 import servicios.*;
@@ -57,7 +58,11 @@ public class ServidorCentral {
             controladorRecetas.setRecetaService(recetas);
             controladorRecetas.run();
 
+            ControladorMensajes controladorMensajes = new ControladorMensajes();
+            adapter.add(controladorMensajes, Util.stringToIdentity("CM"));
+            
             adapter.activate();
+            controladorMensajes.start();
             communicator.waitForShutdown();
 
         }

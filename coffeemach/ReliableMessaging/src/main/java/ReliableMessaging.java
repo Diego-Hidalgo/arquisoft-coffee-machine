@@ -1,13 +1,16 @@
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.zeroc.Ice.*;
+import java.util.concurrent.*;
 
 import servicios.BodegaServicePrx;
 import servicios.LogisticServicePrx;
 import servicios.ReliableMessagingService;
 import servicios.ReliableMessagingServicePrx;
 import servicios.ServicioAbastecimiento;
+
 
 public class ReliableMessaging {
   public static void main(String[] args) {
@@ -16,6 +19,9 @@ public class ReliableMessaging {
     try (Communicator communicator = Util.initialize(args, "reliableMessaging.cfg", extPar)) {
 
       System.out.println("Running!");
+
+      String address = args[0];
+      int port = Integer.parseInt(args[1]);
 
       /*
        * try {
@@ -35,14 +41,10 @@ public class ReliableMessaging {
        * 
        * System.out.println("Gateway error!");
        */
-      String address = args[0];
-      String port = args[1];
+
 
       ObjectAdapter adapter = communicator.createObjectAdapter("ReliableMessaging");
-      ReliableMessagingServiceImp reliableMessagingServiceImp = new ReliableMessagingServiceImp(address, port/*
-                                                                                                              * gatewayAcknowledgment,
-                                                                                                              * gatewayClient
-                                                                                                              */);
+      ReliableMessagingServiceImp reliableMessagingServiceImp = new ReliableMessagingServiceImp(address, port);
       reliableMessagingServiceImp.setCommunicator(communicator);
 
       adapter.add(reliableMessagingServiceImp, Util.stringToIdentity("RM"));

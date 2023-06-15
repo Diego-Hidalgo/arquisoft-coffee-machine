@@ -72,7 +72,6 @@ module servicios{
     interface ReliableMessagingService {
       void sendMessage(string message);
 
-      string getAlarma();
     };
 
     interface BodegaService {

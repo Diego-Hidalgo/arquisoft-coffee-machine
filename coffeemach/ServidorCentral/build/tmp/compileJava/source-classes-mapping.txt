@@ -22,8 +22,8 @@ ventas/VentasManager.java
 servicios/VentaService.java
  servicios.VentaService
  servicios.VentaService$1
-servicios/ReliableMessagingServicePrx.java
- servicios.ReliableMessagingServicePrx
+modelo/VentasReceta.java
+ modelo.VentasReceta
 servicios/_BodegaServicePrxI.java
  servicios._BodegaServicePrxI
 ServerControl/ConsolaAdministracion.java
@@ -40,9 +40,8 @@ servicios/RecetaService.java
  servicios.RecetaService$1
 comunicacion/ControlComLogistica.java
  comunicacion.ControlComLogistica
-servicios/ReliableMessagingService.java
- servicios.ReliableMessagingService
- servicios.ReliableMessagingService$1
+modelo/ConexionBD.java
+ modelo.ConexionBD
 servicios/_BrokerServicePrxI.java
  servicios._BrokerServicePrxI
 modelo/Receta.java
@@ -52,18 +51,16 @@ servicios/AlarmaService.java
  servicios.AlarmaService$1
 servicios/StringSeqHelper.java
  servicios.StringSeqHelper
-servicios/_ReliableMessagingServicePrxI.java
- servicios._ReliableMessagingServicePrxI
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 tracker/PetitionTrackerImp.java
  tracker.PetitionTrackerImp
 servicios/BrokerService.java
  servicios.BrokerService
  servicios.BrokerService$1
-interfaz/ControladorRecetas.java
- interfaz.ControladorRecetas
- interfaz.ControladorRecetas$1
- interfaz.ControladorRecetas$2
- interfaz.ControladorRecetas$3
+servicios/BodegaService.java
+ servicios.BodegaService
+ servicios.BodegaService$1
 servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
 servicios/RecetaServicePrx.java
@@ -104,14 +101,19 @@ modelo/RecetaIngrediente.java
  modelo.RecetaIngrediente
 servicios/VentaServicePrx.java
  servicios.VentaServicePrx
-modelo/ConexionBD.java
- modelo.ConexionBD
-servicios/BodegaService.java
- servicios.BodegaService
- servicios.BodegaService$1
-modelo/VentasReceta.java
- modelo.VentasReceta
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
+servicios/ReliableMessagingService.java
+ servicios.ReliableMessagingService
+ servicios.ReliableMessagingService$1
+servicios/_ReliableMessagingServicePrxI.java
+ servicios._ReliableMessagingServicePrxI
+servicios/ReliableMessagingServicePrx.java
+ servicios.ReliableMessagingServicePrx
+interfaz/ControladorRecetas.java
+ interfaz.ControladorRecetas
+ interfaz.ControladorRecetas$1
+ interfaz.ControladorRecetas$2
+ interfaz.ControladorRecetas$3
+interfaz/ControladorMensajes.java
+ interfaz.ControladorMensajes
 ServidorCentral.java
  ServidorCentral
