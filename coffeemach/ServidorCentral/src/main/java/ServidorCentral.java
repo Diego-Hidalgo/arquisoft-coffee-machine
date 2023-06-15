@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Future;
+
 import com.zeroc.Ice.*;
 import comunicacion.*;
 import interfaz.ControladorRecetas;
@@ -42,7 +44,7 @@ public class ServidorCentral {
             String address = args[0];
             String port = args[1];
 
-            BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(communicator.propertyToProxy("broker")).ice_twoway();
+            BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(communicator.propertyToProxy("broker")).ice_twoway();;
 
             AlarmaServicePrx alarmaServicePrx = AlarmaServicePrx.checkedCast(communicator.stringToProxy(" Alarmas:tcp -h "+address+" -p "+port));
             brokerServicePrx.subscribeAlarma(alarmaServicePrx);
@@ -62,4 +64,5 @@ public class ServidorCentral {
 
         }
     }
+
 }
