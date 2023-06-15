@@ -60,14 +60,14 @@ servicios/BodegaService.java
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
-servicios/ReliableMessagingServicePrx.java
- servicios.ReliableMessagingServicePrx
+ReliableMessaging.java
+ ReliableMessaging
 servicios/ReliableMessagingService.java
  servicios.ReliableMessagingService
  servicios.ReliableMessagingService$1
 servicios/_ReliableMessagingServicePrxI.java
  servicios._ReliableMessagingServicePrxI
-ReliableMessaging.java
- ReliableMessaging
+servicios/ReliableMessagingServicePrx.java
+ servicios.ReliableMessagingServicePrx
 ReliableMessagingServiceImp.java
  ReliableMessagingServiceImp

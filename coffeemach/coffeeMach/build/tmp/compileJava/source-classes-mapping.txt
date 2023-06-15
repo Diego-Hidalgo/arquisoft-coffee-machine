@@ -1,5 +1,5 @@
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
+CoffeeMach.java
+ CoffeeMach
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 alarma/Alarma.java
@@ -116,5 +116,5 @@ interfazUsuario/Interfaz.java
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
-CoffeeMach.java
- CoffeeMach
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper

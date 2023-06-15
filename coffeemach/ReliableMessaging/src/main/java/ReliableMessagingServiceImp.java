@@ -19,11 +19,12 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
     // private ReliableMessagingServicePrx rmOrigin;
     // private ReliableMessagingServicePrx rm;
     private Queue<String> alarmas;
+    private Queue<String> escasezIng;
     private BrokerServicePrx broker;
 
     public ReliableMessagingServiceImp() {
         alarmas = new LinkedList<>();
-
+        escasezIng = new LinkedList<>();
     }
 
     public synchronized void setCommunicator(Communicator com) {
@@ -61,6 +62,18 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
 
     }
 
+    @Override
+    public void receiveEscasezIngrediente(String ing, int cod, Current current) {
+        // los parametros recibidos se tienen que guardar en algún lado
+        escasezIng.add(ing +"-"+cod);
+    }
+
+    private void sendEscasezIngredientes(String msg) {
+        String ing = msg.split("-")[0];
+        int cod = Integer.parseInt(msg.split("-")[1]);
+        broker.getAlarma().recibirNotificacionEscasezIngredientes(ing, cod);
+    }
+
     private void sendAlertMessage(String message) {
         //Aquí se llama a la alarma dependiendo del tipo
         // Se deben hacer varios metodos de envio dependiendo del tipo de alarma porque cada una
@@ -85,12 +98,15 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
 
         while (true) {
             String alarm = "";
+            String alarmIng = "";
             try {
-                while (!alarmas.isEmpty()) {
+                while (!alarmas.isEmpty() && !escasezIng.isEmpty()) {
                     alarm = alarmas.peek();
+                    alarmIng = escasezIng.peek();
                     try {
                         System.out.println(alarm);
                         sendAlertMessage(alarm);
+                        sendEscasezIngredientes(alarmIng);
                         alarmas.poll();
                     } catch (ConnectionRefusedException e1) {
                         System.out.println("Error al enviar la alarma: " + e1.getMessage());

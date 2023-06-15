@@ -53,6 +53,44 @@ public interface ReliableMessagingServicePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default void receiveEscasezIngrediente(String ing, int cod)
+    {
+        receiveEscasezIngrediente(ing, cod, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void receiveEscasezIngrediente(String ing, int cod, java.util.Map<String, String> context)
+    {
+        _iceI_receiveEscasezIngredienteAsync(ing, cod, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> receiveEscasezIngredienteAsync(String ing, int cod)
+    {
+        return _iceI_receiveEscasezIngredienteAsync(ing, cod, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> receiveEscasezIngredienteAsync(String ing, int cod, java.util.Map<String, String> context)
+    {
+        return _iceI_receiveEscasezIngredienteAsync(ing, cod, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_ing -
+     * @param iceP_cod -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveEscasezIngredienteAsync(String iceP_ing, int iceP_cod, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "receiveEscasezIngrediente", null, sync, null);
+        f.invoke(false, context, null, ostr -> {
+                     ostr.writeString(iceP_ing);
+                     ostr.writeInt(iceP_cod);
+                 }, null);
+        return f;
+    }
+
     /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.

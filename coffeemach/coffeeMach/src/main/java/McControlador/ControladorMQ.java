@@ -436,8 +436,8 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 
 					// Enviar SCA
 
-					alarmaServicePrx.recibirNotificacionEscasezIngredientes(ing.getNombre(), codMaquina);
-
+					//alarmaServicePrx.recibirNotificacionEscasezIngredientes(ing.getNombre(), codMaquina);
+					rm.receiveEscasezIngrediente(ing.getNombre(), codMaquina);
 					frame.getTextAreaAlarmas().setText(
 							frame.getTextAreaAlarmas().getText()
 									+ "Se genero una alarma de Ingrediente: "
