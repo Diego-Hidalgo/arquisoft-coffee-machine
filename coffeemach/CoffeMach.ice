@@ -69,4 +69,17 @@ module servicios{
         ServicioAbastecimiento* getAbastecimiento();
         ServicioComLogistica* getLogistica();
     }
+    interface ReliableMessagingService {
+      void sendMessage(string message);
+
+    };
+
+    interface BodegaService {
+      void receiveMessages(string message);
+    };
+
+    interface LogisticService {
+      void receiveMessage(string message);
+    };
+
 }

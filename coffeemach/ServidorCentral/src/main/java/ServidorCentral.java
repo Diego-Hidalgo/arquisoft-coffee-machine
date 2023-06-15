@@ -5,6 +5,7 @@ import java.util.concurrent.Future;
 
 import com.zeroc.Ice.*;
 import comunicacion.*;
+import interfaz.ControladorMensajes;
 import interfaz.ControladorRecetas;
 import receta.ProductoReceta;
 import servicios.*;
@@ -41,7 +42,7 @@ public class ServidorCentral {
             adapter.add(log, Util.stringToIdentity("logistica"));
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
 
-            String address = args[0];
+            String address =args[0];
             String port = args[1];
 
             BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(communicator.propertyToProxy("broker")).ice_twoway();;
@@ -59,7 +60,11 @@ public class ServidorCentral {
             controladorRecetas.setRecetaService(recetas);
             controladorRecetas.run();
 
+            ControladorMensajes controladorMensajes = new ControladorMensajes();
+            adapter.add(controladorMensajes, Util.stringToIdentity("CM"));
+            
             adapter.activate();
+            controladorMensajes.start();
             communicator.waitForShutdown();
 
         }
