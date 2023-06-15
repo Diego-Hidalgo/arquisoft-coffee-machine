@@ -17,7 +17,7 @@ package servicios;
 
 public interface ReliableMessagingService extends com.zeroc.Ice.Object
 {
-    void sendMessage(String message, com.zeroc.Ice.Current current);
+    void receiveAlertMessage(String message, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -50,14 +50,14 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_sendMessage(ReliableMessagingService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_receiveAlertMessage(ReliableMessagingService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
         String iceP_message;
         iceP_message = istr.readString();
         inS.endReadParams();
-        obj.sendMessage(iceP_message, current);
+        obj.receiveAlertMessage(iceP_message, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -68,7 +68,7 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "sendMessage"
+        "receiveAlertMessage"
     };
 
     /** @hidden */
@@ -102,7 +102,7 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
             }
             case 4:
             {
-                return _iceD_sendMessage(this, in, current);
+                return _iceD_receiveAlertMessage(this, in, current);
             }
         }
 

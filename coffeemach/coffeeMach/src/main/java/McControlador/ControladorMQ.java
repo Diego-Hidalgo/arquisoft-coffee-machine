@@ -45,7 +45,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 	public static final int ALARMA_ABASTECIMIENTO = 7;
 
 	/**
-	 * @param ventas the ventas to set
+	 * @param ventasS the ventas to set
 	 */
 	public void setVentas(VentaServicePrx ventasS) {
 		this.ventasService = ventasS;
@@ -162,7 +162,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 			// ResetAlarmas
 
 			// Envio a Servidor
-			rm.sendMessage(ALARMA_ABASTECIMIENTO + "-" + codMaquina + "-" + idAlarma + "-" + cantidad);
+			rm.receiveAlertMessage(ALARMA_ABASTECIMIENTO + "-" + codMaquina + "-" + idAlarma + "-" + cantidad);
 			// Testing reliable messaging instead of alarmaServicePrx
 			//alarmaServicePrx.recibirNotificacionAbastesimiento(codMaquina, idAlarma + "", cantidad);
 		}
@@ -335,7 +335,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 						frame.getTextAreaAlarmas().getText()
 								+ "Se genero una alarma de: Mantenimiento"
 								+ "\n");
-				rm.sendMessage(ALARMA_MAL_FUNCIONAMIENTO + "-" + codMaquina + "-Se requiere mantenimiento");
+				rm.receiveAlertMessage(ALARMA_MAL_FUNCIONAMIENTO + "-" + codMaquina + "-Se requiere mantenimiento");
 				//alarmaServicePrx.recibirNotificacionMalFuncionamiento(codMaquina, "Se requiere mantenimiento");
 
 				alarmas.addElement("1", temp);

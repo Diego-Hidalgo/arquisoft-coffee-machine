@@ -15,15 +15,17 @@
 
 package servicios;
 
-public interface PetitionTracker extends com.zeroc.Ice.Object
+public interface ServicioAbastecimiento extends com.zeroc.Ice.Object
 {
-    int getPetitionCount(com.zeroc.Ice.Current current);
+    void abastecer(int codMaquina, int tipoAlarma, com.zeroc.Ice.Current current);
+
+    int petitionCount(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
     {
         "::Ice::Object",
-        "::servicios::PetitionTracker"
+        "::servicios::ServicioAbastecimiento"
     };
 
     @Override
@@ -40,7 +42,7 @@ public interface PetitionTracker extends com.zeroc.Ice.Object
 
     static String ice_staticId()
     {
-        return "::servicios::PetitionTracker";
+        return "::servicios::ServicioAbastecimiento";
     }
 
     /**
@@ -50,11 +52,31 @@ public interface PetitionTracker extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getPetitionCount(PetitionTracker obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_abastecer(ServicioAbastecimiento obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        int iceP_codMaquina;
+        int iceP_tipoAlarma;
+        iceP_codMaquina = istr.readInt();
+        iceP_tipoAlarma = istr.readInt();
+        inS.endReadParams();
+        obj.abastecer(iceP_codMaquina, iceP_tipoAlarma, current);
+        return inS.setResult(inS.writeEmptyParams());
+    }
+
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_petitionCount(ServicioAbastecimiento obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         inS.readEmptyParams();
-        int ret = obj.getPetitionCount(current);
+        int ret = obj.petitionCount(current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ostr.writeInt(ret);
         inS.endWriteParams(ostr);
@@ -64,11 +86,12 @@ public interface PetitionTracker extends com.zeroc.Ice.Object
     /** @hidden */
     final static String[] _iceOps =
     {
-        "getPetitionCount",
+        "abastecer",
         "ice_id",
         "ice_ids",
         "ice_isA",
-        "ice_ping"
+        "ice_ping",
+        "petitionCount"
     };
 
     /** @hidden */
@@ -86,7 +109,7 @@ public interface PetitionTracker extends com.zeroc.Ice.Object
         {
             case 0:
             {
-                return _iceD_getPetitionCount(this, in, current);
+                return _iceD_abastecer(this, in, current);
             }
             case 1:
             {
@@ -103,6 +126,10 @@ public interface PetitionTracker extends com.zeroc.Ice.Object
             case 4:
             {
                 return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            }
+            case 5:
+            {
+                return _iceD_petitionCount(this, in, current);
             }
         }
 

@@ -5,12 +5,6 @@ import servicios.*;
 import com.zeroc.Ice.Current;
 
 public class ControladorMensajes extends Thread implements ReliableMessagingService {
-
-    @Override
-    public void sendMessage (String message, Current current) {
-        System.out.println("Mensaje obtenido!");
-        System.out.println(message);
-    }
 	
 	@Override
 	public void run() {
@@ -26,6 +20,9 @@ public class ControladorMensajes extends Thread implements ReliableMessagingServ
 
 	}
 
-	
 
+    @Override
+    public void receiveAlertMessage(String message, Current current) {
+
+    }
 }

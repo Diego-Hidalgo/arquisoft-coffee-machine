@@ -11,7 +11,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Broker" />
+            <option value="$PROJECT_DIR$/ReliableMessaging" />
             <option value="$PROJECT_DIR$/ServidorCentral" />
+            <option value="$PROJECT_DIR$/bodegaCentral" />
+            <option value="$PROJECT_DIR$/cmLogistics" />
             <option value="$PROJECT_DIR$/coffeeMach" />
           </set>
         </option>

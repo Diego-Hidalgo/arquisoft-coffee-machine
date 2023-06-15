@@ -16,7 +16,7 @@
 package servicios;
 
 /** @hidden */
-public class _PetitionTrackerPrxI extends com.zeroc.Ice._ObjectPrxI implements PetitionTrackerPrx
+public class _LogisticServicePrxI extends com.zeroc.Ice._ObjectPrxI implements LogisticServicePrx
 {
     /** @hidden */
     public static final long serialVersionUID = 0L;

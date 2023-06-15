@@ -15,42 +15,41 @@
 
 package servicios;
 
-public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
+public interface LogisticServicePrx extends com.zeroc.Ice.ObjectPrx
 {
-    default int getPetitionCount()
+    default void receiveMessage(String message)
     {
-        return getPetitionCount(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        receiveMessage(message, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default int getPetitionCount(java.util.Map<String, String> context)
+    default void receiveMessage(String message, java.util.Map<String, String> context)
     {
-        return _iceI_getPetitionCountAsync(context, true).waitForResponse();
+        _iceI_receiveMessageAsync(message, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<java.lang.Integer> getPetitionCountAsync()
+    default java.util.concurrent.CompletableFuture<Void> receiveMessageAsync(String message)
     {
-        return _iceI_getPetitionCountAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_receiveMessageAsync(message, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<java.lang.Integer> getPetitionCountAsync(java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> receiveMessageAsync(String message, java.util.Map<String, String> context)
     {
-        return _iceI_getPetitionCountAsync(context, false);
+        return _iceI_receiveMessageAsync(message, context, false);
     }
 
     /**
      * @hidden
+     * @param iceP_message -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getPetitionCountAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveMessageAsync(String iceP_message, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getPetitionCount", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
-                     int ret;
-                     ret = istr.readInt();
-                     return ret;
-                 });
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "receiveMessage", null, sync, null);
+        f.invoke(false, context, null, ostr -> {
+                     ostr.writeString(iceP_message);
+                 }, null);
         return f;
     }
 
@@ -60,9 +59,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static PetitionTrackerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
+    static LogisticServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), PetitionTrackerPrx.class, _PetitionTrackerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), LogisticServicePrx.class, _LogisticServicePrxI.class);
     }
 
     /**
@@ -72,9 +71,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static PetitionTrackerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
+    static LogisticServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), PetitionTrackerPrx.class, _PetitionTrackerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), LogisticServicePrx.class, _LogisticServicePrxI.class);
     }
 
     /**
@@ -84,9 +83,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static PetitionTrackerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static LogisticServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), PetitionTrackerPrx.class, _PetitionTrackerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), LogisticServicePrx.class, _LogisticServicePrxI.class);
     }
 
     /**
@@ -97,9 +96,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static PetitionTrackerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static LogisticServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), PetitionTrackerPrx.class, _PetitionTrackerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), LogisticServicePrx.class, _LogisticServicePrxI.class);
     }
 
     /**
@@ -107,9 +106,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static PetitionTrackerPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
+    static LogisticServicePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, PetitionTrackerPrx.class, _PetitionTrackerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, LogisticServicePrx.class, _LogisticServicePrxI.class);
     }
 
     /**
@@ -118,9 +117,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static PetitionTrackerPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static LogisticServicePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, PetitionTrackerPrx.class, _PetitionTrackerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, LogisticServicePrx.class, _LogisticServicePrxI.class);
     }
 
     /**
@@ -129,9 +128,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified per-proxy context.
      **/
     @Override
-    default PetitionTrackerPrx ice_context(java.util.Map<String, String> newContext)
+    default LogisticServicePrx ice_context(java.util.Map<String, String> newContext)
     {
-        return (PetitionTrackerPrx)_ice_context(newContext);
+        return (LogisticServicePrx)_ice_context(newContext);
     }
 
     /**
@@ -140,9 +139,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified adapter ID.
      **/
     @Override
-    default PetitionTrackerPrx ice_adapterId(String newAdapterId)
+    default LogisticServicePrx ice_adapterId(String newAdapterId)
     {
-        return (PetitionTrackerPrx)_ice_adapterId(newAdapterId);
+        return (LogisticServicePrx)_ice_adapterId(newAdapterId);
     }
 
     /**
@@ -151,9 +150,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default PetitionTrackerPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    default LogisticServicePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
-        return (PetitionTrackerPrx)_ice_endpoints(newEndpoints);
+        return (LogisticServicePrx)_ice_endpoints(newEndpoints);
     }
 
     /**
@@ -162,9 +161,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified locator cache timeout.
      **/
     @Override
-    default PetitionTrackerPrx ice_locatorCacheTimeout(int newTimeout)
+    default LogisticServicePrx ice_locatorCacheTimeout(int newTimeout)
     {
-        return (PetitionTrackerPrx)_ice_locatorCacheTimeout(newTimeout);
+        return (LogisticServicePrx)_ice_locatorCacheTimeout(newTimeout);
     }
 
     /**
@@ -173,9 +172,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified invocation timeout.
      **/
     @Override
-    default PetitionTrackerPrx ice_invocationTimeout(int newTimeout)
+    default LogisticServicePrx ice_invocationTimeout(int newTimeout)
     {
-        return (PetitionTrackerPrx)_ice_invocationTimeout(newTimeout);
+        return (LogisticServicePrx)_ice_invocationTimeout(newTimeout);
     }
 
     /**
@@ -184,9 +183,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified caching policy.
      **/
     @Override
-    default PetitionTrackerPrx ice_connectionCached(boolean newCache)
+    default LogisticServicePrx ice_connectionCached(boolean newCache)
     {
-        return (PetitionTrackerPrx)_ice_connectionCached(newCache);
+        return (LogisticServicePrx)_ice_connectionCached(newCache);
     }
 
     /**
@@ -195,9 +194,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default PetitionTrackerPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    default LogisticServicePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
-        return (PetitionTrackerPrx)_ice_endpointSelection(newType);
+        return (LogisticServicePrx)_ice_endpointSelection(newType);
     }
 
     /**
@@ -208,9 +207,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default PetitionTrackerPrx ice_secure(boolean b)
+    default LogisticServicePrx ice_secure(boolean b)
     {
-        return (PetitionTrackerPrx)_ice_secure(b);
+        return (LogisticServicePrx)_ice_secure(b);
     }
 
     /**
@@ -219,9 +218,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default PetitionTrackerPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    default LogisticServicePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
-        return (PetitionTrackerPrx)_ice_encodingVersion(e);
+        return (LogisticServicePrx)_ice_encodingVersion(e);
     }
 
     /**
@@ -232,9 +231,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default PetitionTrackerPrx ice_preferSecure(boolean b)
+    default LogisticServicePrx ice_preferSecure(boolean b)
     {
-        return (PetitionTrackerPrx)_ice_preferSecure(b);
+        return (LogisticServicePrx)_ice_preferSecure(b);
     }
 
     /**
@@ -243,9 +242,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default PetitionTrackerPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    default LogisticServicePrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
-        return (PetitionTrackerPrx)_ice_router(router);
+        return (LogisticServicePrx)_ice_router(router);
     }
 
     /**
@@ -254,9 +253,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default PetitionTrackerPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    default LogisticServicePrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
-        return (PetitionTrackerPrx)_ice_locator(locator);
+        return (LogisticServicePrx)_ice_locator(locator);
     }
 
     /**
@@ -265,9 +264,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified collocation optimization.
      **/
     @Override
-    default PetitionTrackerPrx ice_collocationOptimized(boolean b)
+    default LogisticServicePrx ice_collocationOptimized(boolean b)
     {
-        return (PetitionTrackerPrx)_ice_collocationOptimized(b);
+        return (LogisticServicePrx)_ice_collocationOptimized(b);
     }
 
     /**
@@ -275,9 +274,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses twoway invocations.
      **/
     @Override
-    default PetitionTrackerPrx ice_twoway()
+    default LogisticServicePrx ice_twoway()
     {
-        return (PetitionTrackerPrx)_ice_twoway();
+        return (LogisticServicePrx)_ice_twoway();
     }
 
     /**
@@ -285,9 +284,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses oneway invocations.
      **/
     @Override
-    default PetitionTrackerPrx ice_oneway()
+    default LogisticServicePrx ice_oneway()
     {
-        return (PetitionTrackerPrx)_ice_oneway();
+        return (LogisticServicePrx)_ice_oneway();
     }
 
     /**
@@ -295,9 +294,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses batch oneway invocations.
      **/
     @Override
-    default PetitionTrackerPrx ice_batchOneway()
+    default LogisticServicePrx ice_batchOneway()
     {
-        return (PetitionTrackerPrx)_ice_batchOneway();
+        return (LogisticServicePrx)_ice_batchOneway();
     }
 
     /**
@@ -305,9 +304,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses datagram invocations.
      **/
     @Override
-    default PetitionTrackerPrx ice_datagram()
+    default LogisticServicePrx ice_datagram()
     {
-        return (PetitionTrackerPrx)_ice_datagram();
+        return (LogisticServicePrx)_ice_datagram();
     }
 
     /**
@@ -315,9 +314,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses batch datagram invocations.
      **/
     @Override
-    default PetitionTrackerPrx ice_batchDatagram()
+    default LogisticServicePrx ice_batchDatagram()
     {
-        return (PetitionTrackerPrx)_ice_batchDatagram();
+        return (LogisticServicePrx)_ice_batchDatagram();
     }
 
     /**
@@ -326,9 +325,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified compression setting.
      **/
     @Override
-    default PetitionTrackerPrx ice_compress(boolean co)
+    default LogisticServicePrx ice_compress(boolean co)
     {
-        return (PetitionTrackerPrx)_ice_compress(co);
+        return (LogisticServicePrx)_ice_compress(co);
     }
 
     /**
@@ -337,9 +336,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified timeout.
      **/
     @Override
-    default PetitionTrackerPrx ice_timeout(int t)
+    default LogisticServicePrx ice_timeout(int t)
     {
-        return (PetitionTrackerPrx)_ice_timeout(t);
+        return (LogisticServicePrx)_ice_timeout(t);
     }
 
     /**
@@ -348,9 +347,9 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified connection ID.
      **/
     @Override
-    default PetitionTrackerPrx ice_connectionId(String connectionId)
+    default LogisticServicePrx ice_connectionId(String connectionId)
     {
-        return (PetitionTrackerPrx)_ice_connectionId(connectionId);
+        return (LogisticServicePrx)_ice_connectionId(connectionId);
     }
 
     /**
@@ -359,13 +358,13 @@ public interface PetitionTrackerPrx extends com.zeroc.Ice.ObjectPrx
      * @return A fixed proxy bound to the given connection.
      **/
     @Override
-    default PetitionTrackerPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    default LogisticServicePrx ice_fixed(com.zeroc.Ice.Connection connection)
     {
-        return (PetitionTrackerPrx)_ice_fixed(connection);
+        return (LogisticServicePrx)_ice_fixed(connection);
     }
 
     static String ice_staticId()
     {
-        return "::servicios::PetitionTracker";
+        return "::servicios::LogisticService";
     }
 }

@@ -17,24 +17,24 @@ package servicios;
 
 public interface ReliableMessagingServicePrx extends com.zeroc.Ice.ObjectPrx
 {
-    default void sendMessage(String message)
+    default void receiveAlertMessage(String message)
     {
-        sendMessage(message, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        receiveAlertMessage(message, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void sendMessage(String message, java.util.Map<String, String> context)
+    default void receiveAlertMessage(String message, java.util.Map<String, String> context)
     {
-        _iceI_sendMessageAsync(message, context, true).waitForResponse();
+        _iceI_receiveAlertMessageAsync(message, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> sendMessageAsync(String message)
+    default java.util.concurrent.CompletableFuture<Void> receiveAlertMessageAsync(String message)
     {
-        return _iceI_sendMessageAsync(message, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_receiveAlertMessageAsync(message, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> sendMessageAsync(String message, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> receiveAlertMessageAsync(String message, java.util.Map<String, String> context)
     {
-        return _iceI_sendMessageAsync(message, context, false);
+        return _iceI_receiveAlertMessageAsync(message, context, false);
     }
 
     /**
@@ -44,9 +44,9 @@ public interface ReliableMessagingServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sendMessageAsync(String iceP_message, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveAlertMessageAsync(String iceP_message, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sendMessage", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "receiveAlertMessage", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_message);
                  }, null);

@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import servicios.AlarmaServicePrx;
+import servicios.BrokerServicePrx;
 import servicios.ReliableMessagingService;
 import servicios.ReliableMessagingServicePrx;
 import com.zeroc.Ice.ObjectPrx;
@@ -18,16 +19,10 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
     // private ReliableMessagingServicePrx rmOrigin;
     // private ReliableMessagingServicePrx rm;
     private Queue<String> alarmas;
-    private String address;
-    private int port;
+    private BrokerServicePrx broker;
 
-    public ReliableMessagingServiceImp(String address, int port) {
+    public ReliableMessagingServiceImp() {
         alarmas = new LinkedList<>();
-        System.out.println(address + " - " + port);
-        this.address = address;
-        this.port = port;
-        // rmOrigin = acknowledgmentRM;
-        // rmDestiny = serverRM;
 
     }
 
@@ -35,8 +30,12 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
         communicator = com;
     }
 
+    public void setBroker(BrokerServicePrx broker) {
+        this.broker = broker;
+    }
+
     @Override
-    public void sendMessage(String message, Current current) {
+    public void receiveAlertMessage(String message, Current current) {
         System.out.println("Test error!4");
         alarmas.add(message);
         System.out.println("I just added something!");
@@ -62,18 +61,13 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
 
     }
 
-    private ReliableMessagingServicePrx createReliableMessagingProxy(String address, int port) {
-        System.out.println("Test error!5");
-        ReliableMessagingServicePrx rmProxy = null;
-
-        String proxyString = "CM:tcp -h " + address + " -p " + port;
-        ObjectPrx base = communicator.stringToProxy(proxyString);
-        rmProxy = ReliableMessagingServicePrx.checkedCast(base);
-        if (rmProxy == null) {
-            throw new IllegalStateException("Error al crear el proxy de ReliableMessagingService");
-        }
-
-        return rmProxy;
+    private void sendAlertMessage(String message) {
+        //Aquí se llama a la alarma dependiendo del tipo
+        // Se deben hacer varios metodos de envio dependiendo del tipo de alarma porque cada una
+        // recibe parametros diferentes
+        // a parte del broker.getAlarma() se obtiene el metodo para informar
+        System.out.println("Se recibe para enviar");
+        broker.getAlarma();
     }
 
     @Override
@@ -95,9 +89,8 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
                 while (!alarmas.isEmpty()) {
                     alarm = alarmas.peek();
                     try {
-                        ReliableMessagingServicePrx rm = createReliableMessagingProxy(address, port);
-
-                        rm.sendMessage(alarm);
+                        System.out.println(alarm);
+                        sendAlertMessage(alarm);
                         alarmas.poll();
                     } catch (ConnectionRefusedException e1) {
                         System.out.println("Error al enviar la alarma: " + e1.getMessage());

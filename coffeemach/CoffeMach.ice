@@ -70,8 +70,7 @@ module servicios{
         ServicioComLogistica* getLogistica();
     }
     interface ReliableMessagingService {
-      void sendMessage(string message);
-
+      void receiveAlertMessage(string message);
     };
 
     interface BodegaService {

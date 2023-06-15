@@ -18,16 +18,16 @@ public class CoffeeMach {
        * RecetaServicePrx recetaServicePrx = RecetaServicePrx.checkedCast(
        * communicator.propertyToProxy("recetas")).ice_twoway();
        */
-
-      BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(
-          communicator.propertyToProxy("broker")).ice_twoway();
           
       ReliableMessagingServicePrx rmServicePrx = ReliableMessagingServicePrx.checkedCast(
           communicator.propertyToProxy("rm")).ice_twoway();
 
       ObjectAdapter adapter = communicator.createObjectAdapter("CoffeMach");
-      
+
       ControladorMQ service = new ControladorMQ();
+
+      service.abastecer(1, 2, null);
+
       service.setRM(rmServicePrx);
       service.run();
       adapter.add((ServicioAbastecimiento) service, Util.stringToIdentity("abastecer"));

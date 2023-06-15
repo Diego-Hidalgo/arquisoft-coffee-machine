@@ -5,11 +5,7 @@ import java.util.List;
 import com.zeroc.Ice.*;
 import java.util.concurrent.*;
 
-import servicios.BodegaServicePrx;
-import servicios.LogisticServicePrx;
-import servicios.ReliableMessagingService;
-import servicios.ReliableMessagingServicePrx;
-import servicios.ServicioAbastecimiento;
+import servicios.*;
 
 
 public class ReliableMessaging {
@@ -19,9 +15,6 @@ public class ReliableMessaging {
     try (Communicator communicator = Util.initialize(args, "reliableMessaging.cfg", extPar)) {
 
       System.out.println("Running!");
-
-      String address = args[0];
-      int port = Integer.parseInt(args[1]);
 
       /*
        * try {
@@ -43,9 +36,14 @@ public class ReliableMessaging {
        */
 
       System.out.println("Test error location!");
+
+      BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(
+              communicator.propertyToProxy("broker")).ice_twoway();
+
       ObjectAdapter adapter = communicator.createObjectAdapter("ReliableMessaging");
-      ReliableMessagingServiceImp reliableMessagingServiceImp = new ReliableMessagingServiceImp(address, port);
+      ReliableMessagingServiceImp reliableMessagingServiceImp = new ReliableMessagingServiceImp();
       reliableMessagingServiceImp.setCommunicator(communicator);
+      reliableMessagingServiceImp.setBroker(brokerServicePrx);
       System.out.println("Test error location!2");
       adapter.add(reliableMessagingServiceImp, Util.stringToIdentity("RM"));
       adapter.activate();
