@@ -33,6 +33,8 @@ public interface RecetaService extends com.zeroc.Ice.Object
 
     String registrarIngrediente(String nombre, com.zeroc.Ice.Current current);
 
+    int petitionCount(com.zeroc.Ice.Current current);
+
     /** @hidden */
     static final String[] _iceIds =
     {
@@ -217,6 +219,24 @@ public interface RecetaService extends com.zeroc.Ice.Object
         return inS.setResult(ostr);
     }
 
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_petitionCount(RecetaService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        inS.readEmptyParams();
+        int ret = obj.petitionCount(current);
+        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        ostr.writeInt(ret);
+        inS.endWriteParams(ostr);
+        return inS.setResult(ostr);
+    }
+
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -230,6 +250,7 @@ public interface RecetaService extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
+        "petitionCount",
         "registrarIngrediente",
         "registrarReceta"
     };
@@ -289,9 +310,13 @@ public interface RecetaService extends com.zeroc.Ice.Object
             }
             case 10:
             {
-                return _iceD_registrarIngrediente(this, in, current);
+                return _iceD_petitionCount(this, in, current);
             }
             case 11:
+            {
+                return _iceD_registrarIngrediente(this, in, current);
+            }
+            case 12:
             {
                 return _iceD_registrarReceta(this, in, current);
             }

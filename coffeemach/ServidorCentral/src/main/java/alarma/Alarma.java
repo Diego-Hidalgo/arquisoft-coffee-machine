@@ -6,6 +6,7 @@ import com.zeroc.Ice.Current;
 
 import servicios.AlarmaService;
 import servicios.Moneda;
+import tracker.PetitionTrackerImp;
 
 public class Alarma implements AlarmaService {
 
@@ -17,18 +18,23 @@ public class Alarma implements AlarmaService {
     public static final int ALARMA_MAL_FUNCIONAMIENTO = 6;
 
     private AlarmasManager manager;
+    private PetitionTrackerImp petitionTrackerImp;
 
-    public Alarma(AlarmasManager manager) {
+    public Alarma(AlarmasManager manager, PetitionTrackerImp petitionTrackerImp) {
         this.manager = manager;
+        this.petitionTrackerImp = petitionTrackerImp;
     }
 
     @Override
     public void recibirNotificacionEscasezIngredientes(String iDing, int idMaq, Current current) {
+        petitionTrackerImp.increaseCount();
         manager.alarmaMaquina(ALARMA_INGREDIENTE, idMaq, new Date());
+        petitionTrackerImp.decreaseCount();
     }
 
     @Override
     public void recibirNotificacionInsuficienciaMoneda(Moneda moneda, int idMaq, Current current) {
+        petitionTrackerImp.increaseCount();
         switch (moneda) {
             case CIEN:
                 manager.alarmaMaquina(ALARMA_MONEDA_CIEN, idMaq, new Date());
@@ -42,23 +48,35 @@ public class Alarma implements AlarmaService {
             default:
                 break;
         }
+        petitionTrackerImp.decreaseCount();
     }
 
     @Override
     public void recibirNotificacionEscasezSuministro(String idSumin, int idMaq, Current current) {
         // suministro
+        petitionTrackerImp.increaseCount();
         manager.alarmaMaquina(ALARMA_SUMINISTRO, idMaq, new Date());
+        petitionTrackerImp.decreaseCount();
     }
 
     @Override
     public void recibirNotificacionAbastesimiento(int idMaq, String idInsumo, int cantidad, Current current) {
         // TODO validar el insumo
+        petitionTrackerImp.increaseCount();
         manager.desactivarAlarma(ALARMA_INGREDIENTE, idMaq, new Date());
+        petitionTrackerImp.decreaseCount();
     }
 
     @Override
     public void recibirNotificacionMalFuncionamiento(int idMaq, String descri, Current current) {
+        petitionTrackerImp.increaseCount();
         manager.alarmaMaquina(ALARMA_MAL_FUNCIONAMIENTO, idMaq, new Date());
+        petitionTrackerImp.decreaseCount();
+    }
+
+    @Override
+    public int petitionCount(Current current) {
+        return petitionTrackerImp.getCount();
     }
 
 }

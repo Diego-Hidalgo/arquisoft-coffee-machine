@@ -55,6 +55,43 @@ public interface VentaServicePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default int petitionCount()
+    {
+        return petitionCount(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default int petitionCount(java.util.Map<String, String> context)
+    {
+        return _iceI_petitionCountAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<java.lang.Integer> petitionCountAsync()
+    {
+        return _iceI_petitionCountAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<java.lang.Integer> petitionCountAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_petitionCountAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_petitionCountAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "petitionCount", null, sync, null);
+        f.invoke(true, context, null, null, istr -> {
+                     int ret;
+                     ret = istr.readInt();
+                     return ret;
+                 });
+        return f;
+    }
+
     /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.

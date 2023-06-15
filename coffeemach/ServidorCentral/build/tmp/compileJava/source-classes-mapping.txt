@@ -1,18 +1,18 @@
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
-modelo/VentasReceta.java
- modelo.VentasReceta
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
-alarma/Alarma.java
- alarma.Alarma
- alarma.Alarma$1
+servicios/BrokerService.java
+ servicios.BrokerService
+ servicios.BrokerService$1
 servicios/_AlarmaServicePrxI.java
  servicios._AlarmaServicePrxI
 ServerControl/ServerControl.java
  ServerControl.ServerControl
-receta/ProductoReceta.java
- receta.ProductoReceta
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
 servicios/_ServicioComLogisticaPrxI.java
  servicios._ServicioComLogisticaPrxI
 modelo/AlarmaMaquina.java
@@ -27,8 +27,8 @@ servicios/ServicioAbastecimientoPrx.java
  servicios.ServicioAbastecimientoPrx
 alarma/AlarmasManager.java
  alarma.AlarmasManager
-ventas/VentasManager.java
- ventas.VentasManager
+modelo/VentasReceta.java
+ modelo.VentasReceta
 servicios/VentaService.java
  servicios.VentaService
  servicios.VentaService$1
@@ -40,8 +40,8 @@ modelo/Maquina.java
  modelo.Maquina
 servicios/Moneda.java
  servicios.Moneda
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
@@ -50,14 +50,15 @@ servicios/AlarmaServicePrx.java
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-comunicacion/ControlComLogistica.java
- comunicacion.ControlComLogistica
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
 interfaz/InterfazRecetas.java
  interfaz.InterfazRecetas
 modelo/Ingrediente.java
  modelo.Ingrediente
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
+servicios/_BrokerServicePrxI.java
+ servicios._BrokerServicePrxI
 modelo/Receta.java
  modelo.Receta
 modelo/VentasMaquina.java
@@ -75,20 +76,21 @@ servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 modelo/ConexionBD.java
  modelo.ConexionBD
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
+ventas/VentasManager.java
+ ventas.VentasManager
+alarma/Alarma.java
+ alarma.Alarma
+ alarma.Alarma$1
+comunicacion/ControlComLogistica.java
+ comunicacion.ControlComLogistica
+tracker/PetitionTrackerImp.java
+ tracker.PetitionTrackerImp
+receta/ProductoReceta.java
+ receta.ProductoReceta
 interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas
  interfaz.ControladorRecetas$1
  interfaz.ControladorRecetas$2
  interfaz.ControladorRecetas$3
-servicios/BrokerServicePrx.java
- servicios.BrokerServicePrx
-servicios/BrokerService.java
- servicios.BrokerService
- servicios.BrokerService$1
-servicios/_BrokerServicePrxI.java
- servicios._BrokerServicePrxI
 ServidorCentral.java
  ServidorCentral

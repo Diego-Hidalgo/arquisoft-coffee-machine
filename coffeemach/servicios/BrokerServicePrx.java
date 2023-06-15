@@ -234,6 +234,154 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default VentaServicePrx getVenta()
+    {
+        return getVenta(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default VentaServicePrx getVenta(java.util.Map<String, String> context)
+    {
+        return _iceI_getVentaAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<VentaServicePrx> getVentaAsync()
+    {
+        return _iceI_getVentaAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<VentaServicePrx> getVentaAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_getVentaAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<VentaServicePrx> _iceI_getVentaAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<VentaServicePrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getVenta", null, sync, null);
+        f.invoke(true, context, null, null, istr -> {
+                     VentaServicePrx ret;
+                     ret = VentaServicePrx.uncheckedCast(istr.readProxy());
+                     return ret;
+                 });
+        return f;
+    }
+
+    default RecetaServicePrx getReceta()
+    {
+        return getReceta(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default RecetaServicePrx getReceta(java.util.Map<String, String> context)
+    {
+        return _iceI_getRecetaAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<RecetaServicePrx> getRecetaAsync()
+    {
+        return _iceI_getRecetaAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<RecetaServicePrx> getRecetaAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_getRecetaAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<RecetaServicePrx> _iceI_getRecetaAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<RecetaServicePrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getReceta", null, sync, null);
+        f.invoke(true, context, null, null, istr -> {
+                     RecetaServicePrx ret;
+                     ret = RecetaServicePrx.uncheckedCast(istr.readProxy());
+                     return ret;
+                 });
+        return f;
+    }
+
+    default ServicioAbastecimientoPrx getAbastecimiento()
+    {
+        return getAbastecimiento(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default ServicioAbastecimientoPrx getAbastecimiento(java.util.Map<String, String> context)
+    {
+        return _iceI_getAbastecimientoAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<ServicioAbastecimientoPrx> getAbastecimientoAsync()
+    {
+        return _iceI_getAbastecimientoAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<ServicioAbastecimientoPrx> getAbastecimientoAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_getAbastecimientoAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<ServicioAbastecimientoPrx> _iceI_getAbastecimientoAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<ServicioAbastecimientoPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAbastecimiento", null, sync, null);
+        f.invoke(true, context, null, null, istr -> {
+                     ServicioAbastecimientoPrx ret;
+                     ret = ServicioAbastecimientoPrx.uncheckedCast(istr.readProxy());
+                     return ret;
+                 });
+        return f;
+    }
+
+    default ServicioComLogisticaPrx getLogistica()
+    {
+        return getLogistica(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default ServicioComLogisticaPrx getLogistica(java.util.Map<String, String> context)
+    {
+        return _iceI_getLogisticaAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<ServicioComLogisticaPrx> getLogisticaAsync()
+    {
+        return _iceI_getLogisticaAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<ServicioComLogisticaPrx> getLogisticaAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_getLogisticaAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<ServicioComLogisticaPrx> _iceI_getLogisticaAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<ServicioComLogisticaPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLogistica", null, sync, null);
+        f.invoke(true, context, null, null, istr -> {
+                     ServicioComLogisticaPrx ret;
+                     ret = ServicioComLogisticaPrx.uncheckedCast(istr.readProxy());
+                     return ret;
+                 });
+        return f;
+    }
+
     /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.

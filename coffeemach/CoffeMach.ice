@@ -12,12 +12,14 @@ module servicios{
     interface ServicioComLogistica{
 
       StringSeq asignacionMaquina(int codigoOperador);
-	    StringSeq asignacionMaquinasDesabastecidas(int codigoOperador);
-	    bool inicioSesion(int codigoOperador, string password);
+	  StringSeq asignacionMaquinasDesabastecidas(int codigoOperador);
+	  bool inicioSesion(int codigoOperador, string password);
+	  int petitionCount();
     }
 
     interface ServicioAbastecimiento {
 	   void abastecer(int codMaquina, int tipoAlarma);
+	   int petitionCount();
     }
 
     enum Moneda{
@@ -32,27 +34,29 @@ module servicios{
       void recibirNotificacionEscasezSuministro(string idSumin, int idMaq);
       void recibirNotificacionAbastesimiento(int idMaq, string idInsumo, int cantidad );
       void recibirNotificacionMalFuncionamiento(int idMaq, string descri);
-
+      int petitionCount();
     }
 
     interface VentaService{
       void registrarVenta(int codMaq, StringArr ventas);
+      int petitionCount();
     }
 
     interface RecetaService{
       StringArr consultarIngredientes();
-	    StringArr consultarRecetas();
+	  StringArr consultarRecetas();
       StringArr consultarProductos();
       void definirProducto(string nombre, int precio, MapStrInt ingredientes);
 
-	    void borrarReceta(int cod);
-	    void definirRecetaIngrediente(int idReceta, int idIngrediente,int valor);
-	    string registrarReceta(string nombre, int precio);
-	    string registrarIngrediente(string nombre);
+	  void borrarReceta(int cod);
+	  void definirRecetaIngrediente(int idReceta, int idIngrediente,int valor);
+	  string registrarReceta(string nombre, int precio);
+	  string registrarIngrediente(string nombre);
+
+	  int petitionCount();
     }
 
     interface BrokerService{
-
         void subscribeAlarma(AlarmaService* service);
         void subscribeVenta(VentaService* service);
         void subscribeReceta(RecetaService* service);
@@ -60,7 +64,9 @@ module servicios{
         void subscribeLogistica(ServicioComLogistica* service);
 
         AlarmaService* getAlarma();
-
+        VentaService* getVenta();
+        RecetaService* getReceta();
+        ServicioAbastecimiento* getAbastecimiento();
+        ServicioComLogistica* getLogistica();
     }
-
 }
