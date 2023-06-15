@@ -27,6 +27,8 @@ public interface AlarmaService extends com.zeroc.Ice.Object
 
     void recibirNotificacionMalFuncionamiento(int idMaq, String descri, com.zeroc.Ice.Current current);
 
+    int petitionCount(com.zeroc.Ice.Current current);
+
     /** @hidden */
     static final String[] _iceIds =
     {
@@ -153,6 +155,24 @@ public interface AlarmaService extends com.zeroc.Ice.Object
         return inS.setResult(inS.writeEmptyParams());
     }
 
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_petitionCount(AlarmaService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        inS.readEmptyParams();
+        int ret = obj.petitionCount(current);
+        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        ostr.writeInt(ret);
+        inS.endWriteParams(ostr);
+        return inS.setResult(ostr);
+    }
+
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -160,6 +180,7 @@ public interface AlarmaService extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
+        "petitionCount",
         "recibirNotificacionAbastesimiento",
         "recibirNotificacionEscasezIngredientes",
         "recibirNotificacionEscasezSuministro",
@@ -198,21 +219,25 @@ public interface AlarmaService extends com.zeroc.Ice.Object
             }
             case 4:
             {
-                return _iceD_recibirNotificacionAbastesimiento(this, in, current);
+                return _iceD_petitionCount(this, in, current);
             }
             case 5:
             {
-                return _iceD_recibirNotificacionEscasezIngredientes(this, in, current);
+                return _iceD_recibirNotificacionAbastesimiento(this, in, current);
             }
             case 6:
             {
-                return _iceD_recibirNotificacionEscasezSuministro(this, in, current);
+                return _iceD_recibirNotificacionEscasezIngredientes(this, in, current);
             }
             case 7:
             {
-                return _iceD_recibirNotificacionInsuficienciaMoneda(this, in, current);
+                return _iceD_recibirNotificacionEscasezSuministro(this, in, current);
             }
             case 8:
+            {
+                return _iceD_recibirNotificacionInsuficienciaMoneda(this, in, current);
+            }
+            case 9:
             {
                 return _iceD_recibirNotificacionMalFuncionamiento(this, in, current);
             }

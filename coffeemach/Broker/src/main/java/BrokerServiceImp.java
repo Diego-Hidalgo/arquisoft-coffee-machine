@@ -3,6 +3,7 @@ import servicios.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class BrokerServiceImp implements BrokerService {
 
@@ -22,7 +23,6 @@ public class BrokerServiceImp implements BrokerService {
 
     @Override
     public void subscribeAlarma(AlarmaServicePrx service, Current current) {
-        System.out.println("Alarma Service Added!!!");
         alarmas.add(service);
     }
 
@@ -34,6 +34,7 @@ public class BrokerServiceImp implements BrokerService {
     @Override
     public void subscribeReceta(RecetaServicePrx service, Current current) {
         recetas.add(service);
+        System.out.println(recetas.size());
     }
 
     @Override
@@ -48,7 +49,37 @@ public class BrokerServiceImp implements BrokerService {
 
     @Override
     public AlarmaServicePrx getAlarma(Current current) {
-        return alarmas.get(0);
+        Optional<AlarmaServicePrx> optional = alarmas.stream()
+                .min((a1, a2) -> Integer.compare(a1.petitionCount(), a2.petitionCount()));
+        return optional.orElse(null);
+    }
+
+    @Override
+    public VentaServicePrx getVenta(Current current) {
+        Optional<VentaServicePrx> optional = ventas.stream()
+                .min((a1, a2) -> Integer.compare(a1.petitionCount(), a2.petitionCount()));
+        return optional.orElse(null);
+    }
+
+    @Override
+    public RecetaServicePrx getReceta(Current current) {
+        Optional<RecetaServicePrx> optional = recetas.stream()
+                .min((a1, a2) -> Integer.compare(a1.petitionCount(), a2.petitionCount()));
+        return optional.orElse(null);
+    }
+
+    @Override
+    public ServicioAbastecimientoPrx getAbastecimiento(Current current) {
+        Optional<ServicioAbastecimientoPrx> optional = abastecimientos.stream()
+                .min((a1, a2) -> Integer.compare(a1.petitionCount(), a2.petitionCount()));
+        return optional.orElse(null);
+    }
+
+    @Override
+    public ServicioComLogisticaPrx getLogistica(Current current) {
+        Optional<ServicioComLogisticaPrx> optional = logisticas.stream()
+                .min((a1, a2) -> Integer.compare(a1.petitionCount(), a2.petitionCount()));
+        return optional.orElse(null);
     }
 
 

@@ -167,6 +167,11 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 		}
 	}
 
+	@Override
+	public int petitionCount(Current current) {
+		return 0;
+	}
+
 	public void quitarAlarma(String tipo) {
 		alarmas.removeElement(tipo);
 	}

@@ -12,10 +12,16 @@ import modelo.ManejadorDatos;
 import modelo.VentasMaquina;
 import modelo.VentasReceta;
 import servicios.VentaService;
+import tracker.PetitionTrackerImp;
 
 public class VentasManager implements VentaService {
 
     private Communicator communicator;
+    private PetitionTrackerImp petitionTrackerImp;
+
+    public VentasManager(PetitionTrackerImp petitionTrackerImp) {
+        this.petitionTrackerImp = petitionTrackerImp;
+    }
 
     /**
      * @param communicator the communicator to set
@@ -26,7 +32,14 @@ public class VentasManager implements VentaService {
 
     @Override
     public void registrarVenta(int codMaq, String[] ventas, Current current) {
+        petitionTrackerImp.increaseCount();
         reporteVentas(codMaq, ventas);
+        petitionTrackerImp.decreaseCount();
+    }
+
+    @Override
+    public int petitionCount(Current current) {
+        return petitionTrackerImp.getCount();
     }
 
     public void reporteVentas(int idMaquina, String[] detalle) {

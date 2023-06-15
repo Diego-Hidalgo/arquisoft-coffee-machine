@@ -1,5 +1,9 @@
 <state>
+<<<<<<< HEAD
   <timestamp value='1686806052784' />
+=======
+  <timestamp value='1686806270151' />
+>>>>>>> f067b954a23ba0aa19206c232f278cfefde38aee
   <sourceSet name='default'>
     <source name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\CoffeMach.ice'>
       <file name='D:\Usuarios\semillero\Desktop\Studies\Universidad\Arquisoft\Proyecto FInal\arquisoft-coffee-machine\coffeemach\coffeeMach\build\generated-src\servicios\ServicioComLogistica.java' />

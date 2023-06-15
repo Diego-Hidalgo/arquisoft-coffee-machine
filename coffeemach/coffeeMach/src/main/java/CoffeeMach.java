@@ -9,6 +9,7 @@ public class CoffeeMach {
   public static void main(String[] args) {
     List<String> extPar = new ArrayList<>();
     try (Communicator communicator = Util.initialize(args, "coffeMach.cfg", extPar)) {
+<<<<<<< HEAD
       
       AlarmaServicePrx alarmaS = AlarmaServicePrx.checkedCast(
           communicator.propertyToProxy("alarmas")).ice_twoway();
@@ -37,6 +38,18 @@ public class CoffeeMach {
       service.run();
       adapter.add((ServicioAbastecimiento) service, Util.stringToIdentity("abastecer"));
       
+=======
+
+      BrokerServicePrx brokerServicePrx = BrokerServicePrx.checkedCast(
+              communicator.propertyToProxy("broker")).ice_twoway();
+
+      ObjectAdapter adapter = communicator.createObjectAdapter("CoffeMach");
+
+      ControladorMQ service = new ControladorMQ();
+      service.setRM(rmServicePrx);
+      service.run();
+      adapter.add((ServicioAbastecimiento) service, Util.stringToIdentity("abastecer"));
+>>>>>>> f067b954a23ba0aa19206c232f278cfefde38aee
 
       adapter.activate();
       communicator.waitForShutdown();
