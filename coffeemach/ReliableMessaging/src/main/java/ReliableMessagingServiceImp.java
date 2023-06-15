@@ -1,6 +1,7 @@
 import com.zeroc.Ice.Current;
 import com.zeroc.Ice.*;
 
+import java.net.ConnectException;
 import java.util.EmptyStackException;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -9,7 +10,6 @@ import servicios.AlarmaServicePrx;
 import servicios.ReliableMessagingService;
 import servicios.ReliableMessagingServicePrx;
 import com.zeroc.Ice.ObjectPrx;
-
 
 public class ReliableMessagingServiceImp extends Thread implements ReliableMessagingService {
 
@@ -37,6 +37,7 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
 
     @Override
     public void sendMessage(String message, Current current) {
+        System.out.println("Test error!4");
         alarmas.add(message);
         System.out.println("I just added something!");
         System.out.println(message);
@@ -62,12 +63,16 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
     }
 
     private ReliableMessagingServicePrx createReliableMessagingProxy(String address, int port) {
+        System.out.println("Test error!5");
+        ReliableMessagingServicePrx rmProxy = null;
+
         String proxyString = "CM:tcp -h " + address + " -p " + port;
         ObjectPrx base = communicator.stringToProxy(proxyString);
-        ReliableMessagingServicePrx rmProxy = ReliableMessagingServicePrx.checkedCast(base);
+        rmProxy = ReliableMessagingServicePrx.checkedCast(base);
         if (rmProxy == null) {
             throw new IllegalStateException("Error al crear el proxy de ReliableMessagingService");
         }
+
         return rmProxy;
     }
 
@@ -91,9 +96,10 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
                     alarm = alarmas.peek();
                     try {
                         ReliableMessagingServicePrx rm = createReliableMessagingProxy(address, port);
+
                         rm.sendMessage(alarm);
                         alarmas.poll();
-                    } catch (RuntimeException e1) {
+                    } catch (ConnectionRefusedException e1) {
                         System.out.println("Error al enviar la alarma: " + e1.getMessage());
                         alarmas.offer(alarm);
                         alarmas.poll();
@@ -103,7 +109,7 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
                     // envíe a millón
                     // Pues se consumen recursos.
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(10000);
                     } catch (InterruptedException e15) {
                         System.out.println("Error al parar el tiempo: " + e15.getMessage());
                     }

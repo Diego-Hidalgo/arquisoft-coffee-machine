@@ -42,14 +42,14 @@ public class ReliableMessaging {
        * System.out.println("Gateway error!");
        */
 
-
+      System.out.println("Test error location!");
       ObjectAdapter adapter = communicator.createObjectAdapter("ReliableMessaging");
       ReliableMessagingServiceImp reliableMessagingServiceImp = new ReliableMessagingServiceImp(address, port);
       reliableMessagingServiceImp.setCommunicator(communicator);
-
+      System.out.println("Test error location!2");
       adapter.add(reliableMessagingServiceImp, Util.stringToIdentity("RM"));
       adapter.activate();
-
+      System.out.println("Test error location!3");
       reliableMessagingServiceImp.run();
 
       communicator.waitForShutdown();
