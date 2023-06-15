@@ -15,9 +15,9 @@ public class ControladorMensajes extends Thread implements ReliableMessagingServ
 	@Override
 	public void run() {
         while (true) {
-            System.out.println("Escuchando...");
+            //System.out.println("Escuchando...");
             try {
-                Thread.sleep(10000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

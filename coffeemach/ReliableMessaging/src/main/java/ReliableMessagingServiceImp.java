@@ -109,7 +109,7 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
                     // envíe a millón
                     // Pues se consumen recursos.
                     try {
-                        Thread.sleep(10000);
+                        Thread.sleep(2000);
                     } catch (InterruptedException e15) {
                         System.out.println("Error al parar el tiempo: " + e15.getMessage());
                     }
