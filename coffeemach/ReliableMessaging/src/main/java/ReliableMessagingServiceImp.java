@@ -74,6 +74,24 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
         broker.getAlarma().recibirNotificacionEscasezIngredientes(ing, cod);
     }
 
+    @Override
+    public void receiveEscasezSuministro(String idSumin, int idMaq, Current current) {
+
+    }
+
+    private void sendEscasezSuministro(String msg) {
+
+    }
+
+    @Override
+    public void receiveMalFuncionamiento(int idMaq, String descri, Current current) {
+
+    }
+
+    private void sendMalFuncionamiento(String msg) {
+
+    }
+
     private void sendAlertMessage(String message) {
         //Aquí se llama a la alarma dependiendo del tipo
         // Se deben hacer varios metodos de envio dependiendo del tipo de alarma porque cada una
@@ -100,14 +118,15 @@ public class ReliableMessagingServiceImp extends Thread implements ReliableMessa
             String alarm = "";
             String alarmIng = "";
             try {
-                while (!alarmas.isEmpty() && !escasezIng.isEmpty()) {
+                while (!alarmas.isEmpty() || !escasezIng.isEmpty()) {
                     alarm = alarmas.peek();
                     alarmIng = escasezIng.peek();
                     try {
                         System.out.println(alarm);
-                        sendAlertMessage(alarm);
+                        //sendAlertMessage(alarm);
                         sendEscasezIngredientes(alarmIng);
-                        alarmas.poll();
+                        escasezIng.poll();
+                        //alarmas.poll();
                     } catch (ConnectionRefusedException e1) {
                         System.out.println("Error al enviar la alarma: " + e1.getMessage());
                         alarmas.offer(alarm);

@@ -3,13 +3,15 @@ import com.zeroc.Ice.*;
 import McControlador.ControladorMQ;
 
 import java.util.*;
+
+import com.zeroc.Ice.Properties;
 import servicios.*;
 
 public class CoffeeMach {
   public static void main(String[] args) {
     List<String> extPar = new ArrayList<>();
     try (Communicator communicator = Util.initialize(args, "coffeMach.cfg", extPar)) {
-
+      communicator.getProperties().setProperty("CoffeMach.Endpoints", "tcp -h "+args[0]+" -p "+args[1]);
       /*
        * AlarmaServicePrx alarmaS = AlarmaServicePrx.checkedCast(
        * communicator.propertyToProxy("alarmas")).ice_twoway();
@@ -26,8 +28,9 @@ public class CoffeeMach {
 
       ControladorMQ service = new ControladorMQ();
 
-      service.abastecer(1, 2, null);
-
+      for(int i = 1; i <= 10; i ++) {
+        rmServicePrx.receiveEscasezIngrediente("algo", 1);
+      }
       service.setRM(rmServicePrx);
       service.run();
       adapter.add((ServicioAbastecimiento) service, Util.stringToIdentity("abastecer"));

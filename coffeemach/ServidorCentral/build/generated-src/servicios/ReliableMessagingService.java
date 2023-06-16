@@ -19,6 +19,12 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
 {
     void receiveAlertMessage(String message, com.zeroc.Ice.Current current);
 
+    void receiveEscasezIngrediente(String ing, int cod, com.zeroc.Ice.Current current);
+
+    void receiveEscasezSuministro(String idSumin, int idMaq, com.zeroc.Ice.Current current);
+
+    void receiveMalFuncionamiento(int idMaq, String descri, com.zeroc.Ice.Current current);
+
     /** @hidden */
     static final String[] _iceIds =
     {
@@ -61,6 +67,66 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
         return inS.setResult(inS.writeEmptyParams());
     }
 
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_receiveEscasezIngrediente(ReliableMessagingService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        String iceP_ing;
+        int iceP_cod;
+        iceP_ing = istr.readString();
+        iceP_cod = istr.readInt();
+        inS.endReadParams();
+        obj.receiveEscasezIngrediente(iceP_ing, iceP_cod, current);
+        return inS.setResult(inS.writeEmptyParams());
+    }
+
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_receiveEscasezSuministro(ReliableMessagingService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        String iceP_idSumin;
+        int iceP_idMaq;
+        iceP_idSumin = istr.readString();
+        iceP_idMaq = istr.readInt();
+        inS.endReadParams();
+        obj.receiveEscasezSuministro(iceP_idSumin, iceP_idMaq, current);
+        return inS.setResult(inS.writeEmptyParams());
+    }
+
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_receiveMalFuncionamiento(ReliableMessagingService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        int iceP_idMaq;
+        String iceP_descri;
+        iceP_idMaq = istr.readInt();
+        iceP_descri = istr.readString();
+        inS.endReadParams();
+        obj.receiveMalFuncionamiento(iceP_idMaq, iceP_descri, current);
+        return inS.setResult(inS.writeEmptyParams());
+    }
+
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -68,7 +134,10 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "receiveAlertMessage"
+        "receiveAlertMessage",
+        "receiveEscasezIngrediente",
+        "receiveEscasezSuministro",
+        "receiveMalFuncionamiento"
     };
 
     /** @hidden */
@@ -103,6 +172,18 @@ public interface ReliableMessagingService extends com.zeroc.Ice.Object
             case 4:
             {
                 return _iceD_receiveAlertMessage(this, in, current);
+            }
+            case 5:
+            {
+                return _iceD_receiveEscasezIngrediente(this, in, current);
+            }
+            case 6:
+            {
+                return _iceD_receiveEscasezSuministro(this, in, current);
+            }
+            case 7:
+            {
+                return _iceD_receiveMalFuncionamiento(this, in, current);
             }
         }
 

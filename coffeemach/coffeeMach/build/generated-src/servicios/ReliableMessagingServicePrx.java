@@ -91,6 +91,82 @@ public interface ReliableMessagingServicePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default void receiveEscasezSuministro(String idSumin, int idMaq)
+    {
+        receiveEscasezSuministro(idSumin, idMaq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void receiveEscasezSuministro(String idSumin, int idMaq, java.util.Map<String, String> context)
+    {
+        _iceI_receiveEscasezSuministroAsync(idSumin, idMaq, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> receiveEscasezSuministroAsync(String idSumin, int idMaq)
+    {
+        return _iceI_receiveEscasezSuministroAsync(idSumin, idMaq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> receiveEscasezSuministroAsync(String idSumin, int idMaq, java.util.Map<String, String> context)
+    {
+        return _iceI_receiveEscasezSuministroAsync(idSumin, idMaq, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_idSumin -
+     * @param iceP_idMaq -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveEscasezSuministroAsync(String iceP_idSumin, int iceP_idMaq, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "receiveEscasezSuministro", null, sync, null);
+        f.invoke(false, context, null, ostr -> {
+                     ostr.writeString(iceP_idSumin);
+                     ostr.writeInt(iceP_idMaq);
+                 }, null);
+        return f;
+    }
+
+    default void receiveMalFuncionamiento(int idMaq, String descri)
+    {
+        receiveMalFuncionamiento(idMaq, descri, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void receiveMalFuncionamiento(int idMaq, String descri, java.util.Map<String, String> context)
+    {
+        _iceI_receiveMalFuncionamientoAsync(idMaq, descri, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> receiveMalFuncionamientoAsync(int idMaq, String descri)
+    {
+        return _iceI_receiveMalFuncionamientoAsync(idMaq, descri, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> receiveMalFuncionamientoAsync(int idMaq, String descri, java.util.Map<String, String> context)
+    {
+        return _iceI_receiveMalFuncionamientoAsync(idMaq, descri, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_idMaq -
+     * @param iceP_descri -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveMalFuncionamientoAsync(int iceP_idMaq, String iceP_descri, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "receiveMalFuncionamiento", null, sync, null);
+        f.invoke(false, context, null, ostr -> {
+                     ostr.writeInt(iceP_idMaq);
+                     ostr.writeString(iceP_descri);
+                 }, null);
+        return f;
+    }
+
     /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.

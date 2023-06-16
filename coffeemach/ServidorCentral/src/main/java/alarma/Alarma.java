@@ -27,6 +27,7 @@ public class Alarma implements AlarmaService {
 
     @Override
     public void recibirNotificacionEscasezIngredientes(String iDing, int idMaq, Current current) {
+        System.out.println(iDing + " " + idMaq);
         petitionTrackerImp.increaseCount();
         manager.alarmaMaquina(ALARMA_INGREDIENTE, idMaq, new Date());
         petitionTrackerImp.decreaseCount();

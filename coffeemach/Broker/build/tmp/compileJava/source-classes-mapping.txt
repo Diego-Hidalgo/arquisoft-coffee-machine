@@ -21,8 +21,8 @@ servicios/BodegaServicePrx.java
 servicios/VentaService.java
  servicios.VentaService
  servicios.VentaService$1
-servicios/ReliableMessagingServicePrx.java
- servicios.ReliableMessagingServicePrx
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 servicios/_BodegaServicePrxI.java
  servicios._BodegaServicePrxI
 servicios/_RecetaServicePrxI.java
@@ -42,9 +42,8 @@ servicios/AlarmaServicePrx.java
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-servicios/ReliableMessagingService.java
- servicios.ReliableMessagingService
- servicios.ReliableMessagingService$1
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
 servicios/_BrokerServicePrxI.java
  servicios._BrokerServicePrxI
 servicios/AlarmaService.java
@@ -57,17 +56,18 @@ servicios/VentaServicePrx.java
 servicios/BodegaService.java
  servicios.BodegaService
  servicios.BodegaService$1
-servicios/_ReliableMessagingServicePrxI.java
- servicios._ReliableMessagingServicePrxI
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
 servicios/BrokerService.java
  servicios.BrokerService
  servicios.BrokerService$1
 Broker.java
  Broker
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+servicios/ReliableMessagingService.java
+ servicios.ReliableMessagingService
+ servicios.ReliableMessagingService$1
+servicios/_ReliableMessagingServicePrxI.java
+ servicios._ReliableMessagingServicePrxI
+servicios/ReliableMessagingServicePrx.java
+ servicios.ReliableMessagingServicePrx

@@ -32,8 +32,6 @@ servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
 modelo/Maquina.java
  modelo.Maquina
-interfaz/ControladorMensajes.java
- interfaz.ControladorMensajes
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
