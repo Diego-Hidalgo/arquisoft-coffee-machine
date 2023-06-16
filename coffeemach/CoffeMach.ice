@@ -70,7 +70,6 @@ module servicios{
         ServicioComLogistica* getLogistica();
     }
     interface ReliableMessagingService {
-      void receiveAlertMessage(string message);
       void receiveEscasezIngrediente(string ing, int cod);
       void receiveEscasezSuministro(string idSumin, int idMaq);
       void receiveMalFuncionamiento(int idMaq, string descri);

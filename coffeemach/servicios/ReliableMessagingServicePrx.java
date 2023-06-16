@@ -17,42 +17,6 @@ package servicios;
 
 public interface ReliableMessagingServicePrx extends com.zeroc.Ice.ObjectPrx
 {
-    default void receiveAlertMessage(String message)
-    {
-        receiveAlertMessage(message, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void receiveAlertMessage(String message, java.util.Map<String, String> context)
-    {
-        _iceI_receiveAlertMessageAsync(message, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> receiveAlertMessageAsync(String message)
-    {
-        return _iceI_receiveAlertMessageAsync(message, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> receiveAlertMessageAsync(String message, java.util.Map<String, String> context)
-    {
-        return _iceI_receiveAlertMessageAsync(message, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_message -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveAlertMessageAsync(String iceP_message, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "receiveAlertMessage", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
-                     ostr.writeString(iceP_message);
-                 }, null);
-        return f;
-    }
-
     default void receiveEscasezIngrediente(String ing, int cod)
     {
         receiveEscasezIngrediente(ing, cod, com.zeroc.Ice.ObjectPrx.noExplicitContext);

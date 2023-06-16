@@ -162,6 +162,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 			// ResetAlarmas
 
 			// Envio a Servidor
+			rm.sendMessage(ALARMA_ABASTECIMIENTO + "-" + codMaquina + "-" + idAlarma + "-" + cantidad);
 			rm.receiveAlertMessage(ALARMA_ABASTECIMIENTO + "-" + codMaquina + "-" + idAlarma + "-" + cantidad);
 			// Testing reliable messaging instead of alarmaServicePrx
 			//alarmaServicePrx.recibirNotificacionAbastesimiento(codMaquina, idAlarma + "", cantidad);
@@ -335,6 +336,8 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 						frame.getTextAreaAlarmas().getText()
 								+ "Se genero una alarma de: Mantenimiento"
 								+ "\n");
+
+				rm.sendMessage(ALARMA_MAL_FUNCIONAMIENTO + "-" + codMaquina + "-Se requiere mantenimiento");
 				rm.receiveAlertMessage(ALARMA_MAL_FUNCIONAMIENTO + "-" + codMaquina + "-Se requiere mantenimiento");
 				//alarmaServicePrx.recibirNotificacionMalFuncionamiento(codMaquina, "Se requiere mantenimiento");
 
